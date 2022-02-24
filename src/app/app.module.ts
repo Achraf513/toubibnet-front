@@ -27,6 +27,7 @@ import { AdminModule } from './modules/admin/admin.module';
 
     AppointementsModule,
     ArticlesModule,
+    AdminModule,
     ClientsModule,
     MedicinesModule,
     PharmaciesModule,
