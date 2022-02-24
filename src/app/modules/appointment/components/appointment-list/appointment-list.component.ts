@@ -11,12 +11,15 @@ export class AppointmentListComponent implements OnInit {
   date=new Date();
   invalidDates: Array<Date>=[];
   availableDates: Date[]=[];
+  appointmentOptions:any[]=[];
+  selectedTime!:Date;
+  
   constructor(private appointmentService:AppointmentService) { }
 
   ngOnInit(): void {
     for(let i=0;i<30;i++){
       let invalidDate = new Date();
-      invalidDate.setDate(new Date().getDate() - i)
+      invalidDate.setDate(new Date().getDate() - i-1)
       this.invalidDates.push(invalidDate);
     }
   }
@@ -28,6 +31,11 @@ export class AppointmentListComponent implements OnInit {
       this.availableDates=response;
       console.log(response);
     })
+    this.appointmentOptions = [
+      { label: 'Off', value: 'off' },
+      { label: 'On', value: 'on' },
+      {label: 'test',value:'test'}
+    ];
 
     
     

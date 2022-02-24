@@ -4,3 +4,9 @@
 
 
 <h5>Choisissez l'heure:</h5>
+
+<h5>Single Selection</h5>
+
+<button *ngFor="let date of this.availableDates" pButton pRipple type="button" class="p-button-raised p-button-info">
+{{date}}
+</button>

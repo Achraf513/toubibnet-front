@@ -9,6 +9,9 @@ import { CalendarModule } from 'primeng/calendar';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AppointmentService } from './services/appointment.service';
+import {SelectButtonModule} from 'primeng/selectbutton';
+import {ButtonModule} from 'primeng/button';
+
 
 @NgModule({
   declarations: [
@@ -21,7 +24,9 @@ import { AppointmentService } from './services/appointment.service';
     AppointmentRoutingModule,
     CalendarModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ButtonModule
+    
     
   ],
   providers:[
