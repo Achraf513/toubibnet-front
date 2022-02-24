@@ -6,7 +6,6 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { AppointementsModule } from './modules/appointements/appointements.module';
 import { ArticlesModule } from './modules/articles/articles.module';
 import { ClientsModule } from './modules/clients/clients.module';
 import { MedicinesModule } from './modules/medicines/medicines.module';
@@ -25,7 +24,6 @@ import {InputTextModule} from 'primeng-lts/inputtext';
     BrowserAnimationsModule,
     FormsModule,
     
-    AppointementsModule,
     ArticlesModule,
     ClientsModule,
     MedicinesModule,
