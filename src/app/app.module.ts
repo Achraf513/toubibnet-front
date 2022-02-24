@@ -13,10 +13,13 @@ import { PharmaciesModule } from './modules/pharmacies/pharmacies.module';
 import { QuestionsModule } from './modules/questions/questions.module';
 import { SharedModule } from './modules/shared/shared.module';
 
-import {InputTextModule} from 'primeng-lts/inputtext';
+import { CalendarModule } from 'primeng/calendar';
+
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -30,8 +33,13 @@ import {InputTextModule} from 'primeng-lts/inputtext';
     PharmaciesModule,
     QuestionsModule,
     SharedModule,
+    
 
-    InputTextModule
+    
+    
+    
+    
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

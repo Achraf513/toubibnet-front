@@ -5,7 +5,10 @@ import { AppointmentRoutingModule } from './appointment-routing.module';
 import { AppointmentListComponent } from './components/appointment-list/appointment-list.component';
 import { CheckAppointmentComponent } from './components/check-appointment/check-appointment.component';
 import { AppointmentComponent } from './components/appointment/appointment.component';
-
+import { CalendarModule } from 'primeng/calendar';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { AppointmentService } from './services/appointment.service';
 
 @NgModule({
   declarations: [
@@ -15,7 +18,14 @@ import { AppointmentComponent } from './components/appointment/appointment.compo
   ],
   imports: [
     CommonModule,
-    AppointmentRoutingModule
+    AppointmentRoutingModule,
+    CalendarModule,
+    FormsModule,
+    HttpClientModule
+    
+  ],
+  providers:[
+    AppointmentService
   ]
 })
 export class AppointmentModule { }

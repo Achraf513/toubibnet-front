@@ -1,1 +1,6 @@
-<p>appointment-list works!</p>
+<p-calendar (click)="onDateSelected()" 
+[disabledDates]="invalidDates" [(ngModel)]="date" [inline]="true" [showWeek]="true"></p-calendar>
+
+
+
+<h5>Choisissez l'heure:</h5>
