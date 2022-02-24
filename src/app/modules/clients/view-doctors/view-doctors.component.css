@@ -93,3 +93,48 @@ hr{
     margin-top: 10px;
     margin-bottom: 10px;
 }
+h1{
+    font-weight: 600;
+    color: rgb(0,35,75)
+}
+.svgBackground{
+    position: fixed;
+    bottom: -200px;
+    rotate: 50deg;
+    left: -35%;
+    z-index: -1;
+}
+.svgBackground2{
+    position: fixed;
+    rotate: 50deg;
+    top: -200px;
+    right: -35%;
+    z-index: -1;
+}
+@media screen and (min-width: 900px){
+    .filter-aside{
+        width: 300px;
+        position: fixed;
+        transition: top 0.7s;
+        top: 155px
+    }
+    .stickTop{
+        top: 70px;
+    }
+    .asideContent-container{
+        margin-left: 300px;
+    }
+}
+@media screen and (min-width: 1100px) {
+    .filter-aside{
+        width: 300px;
+        position: fixed;
+    }
+    .stickTop{
+        top: 70px;
+    }
+    .asideContent-container{
+        margin-left: 300px;
+        width: 70%;
+    }
+}

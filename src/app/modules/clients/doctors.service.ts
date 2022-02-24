@@ -8,21 +8,21 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class DoctorsService {
   doctorsUrl: string = "http://localhost:8080/doctor/all"
-  headers:HttpHeaders = new HttpHeaders()
- 
+  headers: HttpHeaders = new HttpHeaders()
 
-  constructor(private http: HttpClient) { 
-    this.headers=this.headers.append('token','Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0QGdtYWlsLmNvbSIsImV4cCI6MTY0NTczMzQwNCwiaWF0IjoxNjQ1NzE1NDA0fQ.iAfzV3RB2fH4149RmMpHb5lZ7uUC0zConTom0uKgf0s6KQTevHwmhyA-2alzHOpuFZwWTOk6PDfdOSK9RNCUfw')
+
+  constructor(private http: HttpClient) {
+    this.headers = this.headers.append('token', 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0QGdtYWlsLmNvbSIsImV4cCI6MTY0NTc1MjIyMiwiaWF0IjoxNjQ1NzM0MjIyfQ.I_t5UtiVSZZk31zDG82GkNiNgTbtKDkGF2eV66SWLnunk4LqEzTahxcQ8UI043BwskrUqL_3slRm8ueSoaEVOA')
   }
-  
+
   getDoctors(): Observable<Doctor[]> {
-    return this.http.get<Doctor[]>(this.doctorsUrl,{headers:this.headers})
+    return this.http.get<Doctor[]>(this.doctorsUrl, { headers: this.headers })
   }
 
   getFilteredDoctors(name: String, selectedSpecialty: String, selectedGovernorate: String, doctors: Array<Doctor>): Doctor[] {
     return doctors.filter(doctor => this.nameIncluded(doctor, name))
-                  .filter(doctor => this.sameGov(doctor, selectedGovernorate))
-                  .filter(doctor => this.sameSpecialty(doctor, selectedSpecialty))
+      .filter(doctor => this.sameGov(doctor, selectedGovernorate))
+      .filter(doctor => this.sameSpecialty(doctor, selectedSpecialty))
   }
 
   private sameSpecialty(doctor: Doctor, selectedSpecialty: String): unknown {

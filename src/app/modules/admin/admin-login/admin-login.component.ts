@@ -1,5 +1,6 @@
 import { Login } from './../../shared/models/Login';
 import { Component, OnInit } from '@angular/core';
+import { RoutingService } from 'src/app/routing.service';
 
 @Component({
   selector: 'app-admin-login',
@@ -8,7 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminLoginComponent implements OnInit {
 
-  constructor() { }
+  constructor(private routingService: RoutingService) {
+    this.routingService.changeRoutes([{
+      name: "Accueil",
+      styleClasses: "nav-item",
+      url: ""
+    }]);
+  }
 
   ngOnInit(): void {
   }
