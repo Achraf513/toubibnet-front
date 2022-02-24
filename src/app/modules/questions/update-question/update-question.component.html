@@ -1,0 +1,19 @@
+<section class="main-container">
+
+  <!-- medicines / pharmacy / servey-question / client / appointement -->
+
+  <section class="asideContent-container">
+
+    <!-- None sense simply to illustrate-->
+    <section class="content-subSection">
+      <h4>Modify a Question</h4>
+      <div class="p-inputgroup">
+        <input [(ngModel)]="question.title" type="text" pInputText placeholder="Title">
+      </div>
+      <div class="p-inputgroup">
+        <input [(ngModel)]="question.content" type="text" pInputText placeholder="Content">
+      </div>
+      <button (click)="update()">Modify</button>
+    </section>
+  </section>
+</section>

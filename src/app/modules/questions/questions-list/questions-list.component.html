@@ -1,1 +1,39 @@
-<p>questions-list works!</p>
+<section class="main-container">
+
+  <!-- medicines / pharmacy / servey-question / client / appointement -->
+  <aside class="filter-aside">
+
+    <!-- None sense simply to illustrate-->
+    <h5>Filter section here</h5>
+    <button>Click me</button>
+    <button class="btn1">Click me</button>
+    <div>main colors to use</div>
+    <div class="p-inputgroup">
+      <input type="text" pInputText placeholder="Price">
+      <span class="p-inputgroup-addon">$</span>
+      <span class="p-inputgroup-addon">.00</span>
+    </div>
+    <button class="btn2">Click me</button>
+    <div class="p-inputgroup">
+      <span class="p-inputgroup-addon"><i class="pi pi-tags"></i></span>
+      <input type="text" pInputText placeholder="stuff">
+      <span class="p-inputgroup-addon"><i class="pi pi-tags"></i>s</span>
+    </div>
+    <!-- None sense ends here-->
+  </aside>
+
+  <section class="asideContent-container">
+    <button (click)="add()">Add Question</button>
+
+    <!-- None sense simply to illustrate-->
+    <section class="content-subSection" *ngFor="let question of questions">
+
+      <h5>{{question.title}}</h5>
+      <h6>{{question.user.firstName}}</h6>
+      <p>{{question.content}}</p>
+      <button *ngIf="id==question.user.id" (click)="delete(question.id)" class="btn1">Delete</button>
+      <button *ngIf="id==question.user.id" (click)="update(question.id)" class="btn2">Modify</button>
+
+    </section>
+  </section>
+</section>
