@@ -7,11 +7,14 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { ViewDoctorsComponent } from './view-doctors/view-doctors.component';
 import { DoctorDetailsComponent } from './doctor-details/doctor-details.component';
 import { ClientsRoutingModule } from './clients-routing.module';
+import {ButtonModule} from 'primeng-lts/button';
+import { SignUpComponent } from './signUp/signUp.component';
 
 @NgModule({
   declarations: [
     ViewDoctorsComponent,
-    DoctorDetailsComponent
+    DoctorDetailsComponent,
+    SignUpComponent,
   ],
   imports: [
     HttpClientModule,
@@ -20,6 +23,8 @@ import { ClientsRoutingModule } from './clients-routing.module';
     FormsModule,
     DropdownModule,
     InputTextModule,
+    ButtonModule,
+    
   ],
   providers: [
     HttpClient,

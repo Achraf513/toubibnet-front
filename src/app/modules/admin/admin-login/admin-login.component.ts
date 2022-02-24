@@ -1,3 +1,5 @@
+import { LoginResponse } from './../../shared/models/LoginResponse';
+import { LoginService } from './../services/login.service';
 import { Login } from './../../shared/models/Login';
 import { Component, OnInit } from '@angular/core';
 import { RoutingService } from 'src/app/routing.service';
@@ -9,7 +11,7 @@ import { RoutingService } from 'src/app/routing.service';
 })
 export class AdminLoginComponent implements OnInit {
 
-  constructor(private routingService: RoutingService) {
+  constructor(private routingService: RoutingService,private loginService:LoginService) {
     this.routingService.changeRoutes([{
       name: "Accueil",
       styleClasses: "nav-item",
@@ -20,7 +22,11 @@ export class AdminLoginComponent implements OnInit {
   ngOnInit(): void {
   }
   login(login:Login){
-    alert(login);
+    this.loginService.login(login).subscribe((loginResponse:LoginResponse)=>{
+      alert(loginResponse.jwttoken)
+    },
+    (error) =>console.log(error)
+    );
   }
 
 }
