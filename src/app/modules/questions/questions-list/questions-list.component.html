@@ -1,1 +1,22 @@
-<p>questions-list works!</p>
+<section class="main-container">
+
+  <!-- medicines / pharmacy / servey-question / client / appointement -->
+
+  <section class="centered-content">
+    <button (click)="add()">Add Question</button>
+
+    <!-- None sense simply to illustrate-->
+    <section class="content-subSection" *ngFor="let question of questions">
+
+      <h5>{{question.title}}</h5>
+      <h6>{{question.user.firstName}}</h6>
+      <p>{{question.content}}</p>
+      <span>
+      <button *ngIf="id==question.user.id" (click)="delete(question.id)" class="btn1">Delete</button>
+      <button *ngIf="id==question.user.id" (click)="update(question.id)" class="btn2">Modify</button>
+       <button (click)="checkDetails(question.id)" class="btn2">Details</button>
+
+      </span>
+    </section>
+  </section>
+</section>
