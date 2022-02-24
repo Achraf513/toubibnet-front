@@ -1,3 +1,4 @@
+import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { AppointmentService } from '../../services/appointment.service';
 
@@ -11,7 +12,6 @@ export class AppointmentListComponent implements OnInit {
   date=new Date();
   invalidDates: Array<Date>=[];
   availableDates: Date[]=[];
-  appointmentOptions:any[]=[];
   selectedTime!:Date;
   
   constructor(private appointmentService:AppointmentService) { }
@@ -23,6 +23,15 @@ export class AppointmentListComponent implements OnInit {
       this.invalidDates.push(invalidDate);
     }
   }
+  formatDate(date:Date):string{
+    date=new Date(date);
+    let hour=date.getHours();
+    let minute=date.getMinutes().toString();
+    if(minute=='0') minute='00';
+    let formatedDate=`${hour}:${minute}`;
+    console.log(formatedDate);
+    return formatedDate;
+  }
   onDateSelected(){
     let day=this.date.getDate();
     let month=this.date.getMonth()+1;
@@ -30,12 +39,9 @@ export class AppointmentListComponent implements OnInit {
     this.appointmentService.getAvailableAppointments(this.doctorId,day,month,year).subscribe((response:Date[])=>{
       this.availableDates=response;
       console.log(response);
-    })
-    this.appointmentOptions = [
-      { label: 'Off', value: 'off' },
-      { label: 'On', value: 'on' },
-      {label: 'test',value:'test'}
-    ];
+    });
+    
+   
 
     
     
