@@ -14,28 +14,26 @@ import { PharmaciesModule } from './modules/pharmacies/pharmacies.module';
 import { QuestionsModule } from './modules/questions/questions.module';
 import { SharedModule } from './modules/shared/shared.module';
 
-import {InputTextModule} from 'primeng-lts/inputtext';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
-    
+
     AppointementsModule,
     ArticlesModule,
     ClientsModule,
     MedicinesModule,
     PharmaciesModule,
     QuestionsModule,
-    SharedModule,
-
-    InputTextModule
+    SharedModule
   ],
-  providers: [],
+  providers: [ 
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

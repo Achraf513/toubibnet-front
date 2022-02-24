@@ -1,0 +1,21 @@
+<section class="container2">
+    <h1>Trouvez un médecin en Tunisie</h1>
+    <aside class="filter-aside">
+        <h5>Filtrer par</h5>
+        <hr>
+        <div class="inputGroup">
+            <i class="pi pi-search addOn-float-right"></i>
+            <input class="inputSearch" type="text" pInputText [(ngModel)]="doctorName" placeholder="Nom du docteur">
+            <button (click)="filterSearch()" class="addOn-left btn-primary">ok</button>
+        </div>
+        <p-dropdown [style]="{'width':'100%', 'marginBottom':'5px', 'height': '40px'}" [options]="specialities" [(ngModel)]="selectedSpecialty" ></p-dropdown>
+        <p-dropdown [style]="{'width':'100%', 'marginBottom':'5px', 'height': '40px'}" [options]="governorates" [(ngModel)]="selectedGovernorate" ></p-dropdown>
+        <button (click)="filterSearch()" class="btn-primary secondColor fullWidth"><i class="pi pi-search pr-10"></i> <span>Rechercher</span></button>
+        <button (click)="resetFilter()" class="btn-primary thirdColor fullWidth"><i class="pi pi-refresh pr-10"></i> <span>Restaurer</span></button>
+    </aside>
+    <section class="asideContent-container">
+        <div *ngFor="let doctor of displayedDoctors">
+            <app-doctor-details [doctor]="doctor"></app-doctor-details>
+        </div>
+    </section>
+</section>
