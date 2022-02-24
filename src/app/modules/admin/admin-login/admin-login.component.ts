@@ -1,3 +1,5 @@
+import { LoginResponse } from './../../shared/models/LoginResponse';
+import { LoginService } from './../services/login.service';
 import { Login } from './../../shared/models/Login';
 import { Component, OnInit } from '@angular/core';
 
@@ -8,12 +10,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminLoginComponent implements OnInit {
 
-  constructor() { }
+  constructor(private loginService:LoginService) { }
 
   ngOnInit(): void {
   }
   login(login:Login){
-    alert(login);
+    this.loginService.login(login).subscribe((loginResponse:LoginResponse)=>{
+      alert(loginResponse.jwttoken)
+    },
+    (error) =>console.log(error)
+    );
   }
 
 }
