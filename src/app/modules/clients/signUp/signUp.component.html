@@ -1,0 +1,10 @@
+<div class="content-subSection center">
+  <h5>Sing up</h5>
+    
+  <input type="text" name="firstName" pInputText placeholder="firstName" [(ngModel)]="userInfo.firstName">
+  <input type="text" name="lastName" pInputText placeholder="lastName" [(ngModel)]="userInfo.lastName">
+  <input type="text" name="phoneNumber" pInputText placeholder="phoneNumber" [(ngModel)]="userInfo.phoneNumber">
+  <input type="email" name="email" pInputText placeholder="Email" [(ngModel)]="userInfo.email">
+  <input type="password" pInputText placeholder="Password" [(ngModel)]="userInfo.passwordHash">
+  <button pButton type="button" (click)="signUp()" label="Login" ></button>
+</div>
