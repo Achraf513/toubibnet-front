@@ -5,14 +5,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {InputTextModule} from 'primeng-lts/inputtext';
 
+
+
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    InputTextModule
+    InputTextModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
