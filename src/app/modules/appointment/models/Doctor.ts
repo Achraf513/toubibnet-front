@@ -1,5 +1,5 @@
 export default interface Doctor{
-   id: 2;
+   id: number;
    firstName:string ;
    lastName: string;
    email: string;

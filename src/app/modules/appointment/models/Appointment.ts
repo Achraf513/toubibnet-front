@@ -1,5 +1,6 @@
-import { Doctor } from "../../shared/models/Doctor";
-import { User } from "../../shared/models/User";
+import Doctor from "./Doctor";
+import User from "./User";
+
 
 export default class Appointment{
     id!:number;

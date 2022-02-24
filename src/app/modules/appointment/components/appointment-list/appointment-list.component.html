@@ -4,6 +4,6 @@
 
 
 <h5>Choisissez l'heure:</h5>
-<button *ngFor="let date of this.availableDates" id="dateButton" pButton pRipple type="button" class="p-button-raised p-button-info">
+<button (click)="addAppointment(date)" *ngFor="let date of this.availableDates" id="dateButton" pButton pRipple type="button" class="p-button-raised p-button-info">
 <p>{{formatDate(date)}}</p>
 </button>

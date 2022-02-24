@@ -1,9 +1,9 @@
 export default interface User{
-    id: 1;
+    id: number;
     firstName: string;
     lastName: string;
     email: string;
-    phoneNumber: number;
+    phoneNumber: any;
     password: string;
     roles: any[];
 }

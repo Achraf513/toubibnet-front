@@ -1,5 +1,8 @@
 import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import Appointment from '../../models/Appointment';
+import Doctor from '../../models/Doctor';
+import User from '../../models/User';
 import { AppointmentService } from '../../services/appointment.service';
 
 @Component({
@@ -29,7 +32,6 @@ export class AppointmentListComponent implements OnInit {
     let minute=date.getMinutes().toString();
     if(minute=='0') minute='00';
     let formatedDate=`${hour}:${minute}`;
-    console.log(formatedDate);
     return formatedDate;
   }
   onDateSelected(){
@@ -38,13 +40,21 @@ export class AppointmentListComponent implements OnInit {
     let year=this.date.getFullYear();
     this.appointmentService.getAvailableAppointments(this.doctorId,day,month,year).subscribe((response:Date[])=>{
       this.availableDates=response;
-      console.log(response);
     });
-    
-   
+  }
+  addAppointment(date:Date){
+    let user:any={
+      id: 1
 
-    
-    
+    };
+    let doctor:any={
+      id: 2
+
+    };
+    let appointment=new Appointment(date,user,doctor);
+    this.appointmentService.addAppointment(appointment).subscribe((response)=>{
+      console.log(response);
+    })
   }
 
 }
