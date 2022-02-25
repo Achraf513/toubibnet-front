@@ -8,7 +8,6 @@ import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { LoginComponent } from './login/login.component';
 import {ButtonModule} from 'primeng-lts/button';
 
-
 @NgModule({
   declarations: [
     AdminLoginComponent,
@@ -19,7 +18,7 @@ import {ButtonModule} from 'primeng-lts/button';
     AdminRoutingModule,
     InputTextModule,
     FormsModule,
-    ButtonModule
+    ButtonModule,
   ]
 })
 export class AdminModule { }

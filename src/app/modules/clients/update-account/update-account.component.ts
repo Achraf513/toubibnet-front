@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RoutingService } from 'src/app/routing.service';
+import { Doctor } from '../../shared/models/Doctor';
 import { EGovernorate } from '../../shared/models/enum/EGovernorate';
 import { ESpeciality } from '../../shared/models/enum/ESpecialty';
 
@@ -9,6 +10,19 @@ import { ESpeciality } from '../../shared/models/enum/ESpecialty';
   styleUrls: ['./update-account.component.css']
 })
 export class UpdateAccountComponent implements OnInit {
+  user:Doctor = {
+    id:0,
+    firstName:"firstname",
+    lastName:"lastName",
+    phoneNumber:"50504040",
+    email:"email@EmailValidator.com",
+    passwordHash:"password hash",
+    roles:[],
+    speciality:ESpeciality.pneumenologie,
+    governorate:EGovernorate.Ariana,
+    description:"description",
+    address:"address",
+  }
   specialities: Array<String> = [];
   governorates: Array<String> = [];
   selectedSpecialty: String = "";

@@ -12,7 +12,7 @@ export class DoctorsService {
 
 
   constructor(private http: HttpClient) {
-    this.headers = this.headers.append('token', 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0QGdtYWlsLmNvbSIsImV4cCI6MTY0NTc1MjIyMiwiaWF0IjoxNjQ1NzM0MjIyfQ.I_t5UtiVSZZk31zDG82GkNiNgTbtKDkGF2eV66SWLnunk4LqEzTahxcQ8UI043BwskrUqL_3slRm8ueSoaEVOA')
+    this.headers = this.headers.append('token', 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0QGdtYWlsLmNvbSIsImV4cCI6MTY0NTc5OTk5OSwiaWF0IjoxNjQ1NzgxOTk5fQ.g4NsAILSW4eNWRHux8zvBOzkHtU8wG4mZ5-9ZrRjKqH0eqoxxzCxGzXVogOLPgvDHltYt2mHQsUi7_UhzvRLsQ')
   }
 
   getDoctors(): Observable<Doctor[]> {
