@@ -17,7 +17,7 @@ import { HomeModule } from './modules/home/home.module';
 import {InputTextModule} from 'primeng-lts/inputtext';
 
 import { CalendarModule } from 'primeng/calendar';
-
+import { AppointementsModule } from './modules/appointements/appointements.module';
 
 @NgModule({
   declarations: [
@@ -37,7 +37,8 @@ import { CalendarModule } from 'primeng/calendar';
     PharmaciesModule,
     QuestionsModule,
     SharedModule,
-    HomeModule
+    HomeModule,
+    AppointementsModule
   ],
   providers: [     
   ],
