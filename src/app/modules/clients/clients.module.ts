@@ -16,6 +16,7 @@ import { CheckAccountComponent } from './check-account/check-account.component';
 import { SignUpDoctorComponent } from './sign-up-doctor/sign-up-doctor.component';
 import { ToastModule } from 'primeng-lts/toast';
 import {MessageService} from 'primeng-lts/api';
+import { authInterceptorProviders } from 'src/app/AuthInterceptor.service';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import {MessageService} from 'primeng-lts/api';
   ],
   providers: [
     HttpClient,
-    MessageService
+    MessageService,
+    authInterceptorProviders
   ]
 })
 export class ClientsModule { }

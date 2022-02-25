@@ -38,9 +38,10 @@ import { AdminModule } from '../admin/admin.module';
     AdminModule
   ],
   providers:[
-    AppointmentService,ConfirmationService,
+    AppointmentService,
+    ConfirmationService,
     HttpClient,
-    MessageService
+    MessageService,authInterceptorProviders
 
   ]
 })
