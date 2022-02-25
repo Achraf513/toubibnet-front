@@ -1,3 +1,5 @@
+import { Doctor } from './../../shared/models/Doctor';
+import { DoctorsService } from './../doctors.service';
 import { TokenService } from './../../../token.service';
 import { Component, OnInit } from '@angular/core';
 import { RoutingService } from 'src/app/routing.service';
@@ -17,7 +19,8 @@ export class UserLoginComponent implements OnInit {
   constructor(private routingService: RoutingService,
     private loginService:LoginService,private messageService: MessageService,
     private tokenService:TokenService,
-    private router:Router) {
+    private router:Router,
+    private doctorsService:DoctorsService) {
     this.routingService.changeRoutes([{
       name: "Accueil",
       styleClasses: "nav-item",
@@ -32,6 +35,12 @@ export class UserLoginComponent implements OnInit {
     this.loginService.login(login).subscribe((loginResponse:LoginResponse)=>{
       this.tokenService.setUser(loginResponse.user);
       this.tokenService.setToken(loginResponse.jwttoken);
+      if(loginResponse.user.roles.find((role)=>role.name=="DOCTOR")){
+        this.doctorsService.getDoctor(loginResponse.user.id).subscribe(
+          (signedDoctor:Doctor)=> this.tokenService.setDoctor(signedDoctor));
+      }else{
+        this.tokenService.clearDoctor();
+      }
         this.router.navigate(["/home"])
     },
     (error) => this.alert()
