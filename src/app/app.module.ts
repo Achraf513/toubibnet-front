@@ -4,6 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {InputTextModule} from 'primeng-lts/inputtext';
+import { ArticlesModule } from './modules/articles/articles.module';
+import '@angular/compiler'
 
 @NgModule({
   declarations: [
@@ -12,7 +14,9 @@ import {InputTextModule} from 'primeng-lts/inputtext';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    InputTextModule
+    InputTextModule,
+    ArticlesModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
