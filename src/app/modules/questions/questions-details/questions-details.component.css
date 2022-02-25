@@ -1,0 +1,66 @@
+/*---------------------------------------------------------*/
+/*-----------  None sense simply to illustrate ------------*/
+/*---------------------------------------------------------*/
+
+button {
+  background-color: rgb(15, 135, 255);
+  color: white;
+  padding: 3px 20px;
+  font-size: 16px;
+  border-radius: 6px;
+  display: block;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border: none;
+}
+
+.btn1 {
+  background-color: rgb(236, 92, 140);
+  color: rgb(20, 20, 20);
+}
+
+.btn2 {
+  background-color: rgb(255, 185, 35);
+  color: rgb(20, 20, 20);
+}
+
+span {
+  float: right;
+  transform: translate(0, -90px);
+}
+
+.centered-content {
+  margin-left: auto;
+  margin-right: auto;
+  width: 50em
+}
+
+.date {
+  text-align: right;
+  font-size: medium;
+  color: rgb(0, 117, 153);
+}
+
+.textarea-comment {
+  width: 100%;
+  background-color: white;
+  border-radius: 6px;
+  border: 1px solid rgb(225, 230, 235);
+}
+
+.btn-comment {
+  background-color: rgb(255, 185, 35);
+  color: rgb(20, 20, 20);
+  float: right;
+}
+
+i {
+  margin-right: 10px;
+  color: rgb(0, 117, 153);
+}
+
+.icons {
+  display: inline-block;
+  margin-right: 0;
+  transform: translate(0, -10px);
+}
