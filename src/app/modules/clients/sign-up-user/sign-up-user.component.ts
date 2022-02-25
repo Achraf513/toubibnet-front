@@ -4,8 +4,8 @@ import { SignUpService } from '../signUp.service';
 
 @Component({
   selector: 'app-signUp',
-  templateUrl: './signUp.component.html',
-  styleUrls: ['./signUp.component.css']
+  templateUrl: './sign-up-user.component.html',
+  styleUrls: ['./sign-up-user.component.css']
 })
 export class SignUpComponent implements OnInit {
   userInfo:User ={
