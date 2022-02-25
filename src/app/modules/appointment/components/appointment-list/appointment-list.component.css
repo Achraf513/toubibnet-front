@@ -18,3 +18,13 @@ h5{
     margin-top: 1%;
     margin-bottom: 0.5%;
 }
+.selectDate{
+    display: inline-block;
+    vertical-align: top;
+    width: 40%;
+    margin-left: 2%;
+    margin-top: 5%;
+}
+.calendar{
+    display: inline-block;
+}
