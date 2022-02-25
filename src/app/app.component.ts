@@ -22,6 +22,11 @@ export class AppComponent {
       styleClasses: "nav-item",
       url: "/admin/login"
     },
+      {
+        name: "Question",
+        styleClasses: "nav-item",
+        url: "/questions"
+    },
     {
       name: "Médecin",
       styleClasses: "nav-item",

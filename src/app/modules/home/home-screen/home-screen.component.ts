@@ -20,6 +20,11 @@ export class HomeScreenComponent implements OnInit {
       styleClasses: "nav-item",
       url: "/client/viewDoctors"
     },
+      {
+        name: "Question",
+        styleClasses: "nav-item",
+        url: "/questions"
+      },
     {
       name: "Admin",
       styleClasses: "nav-item",

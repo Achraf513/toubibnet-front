@@ -16,17 +16,20 @@ button{
 
 .btn1 {
   background-color: rgb(236, 92, 140);
-  color: rgb(20, 20, 20);
+  /*color: rgb(20, 20, 20);*/
 }
 
 .btn2 {
   background-color: rgb(255, 185, 35);
-  color: rgb(20, 20, 20);
+  /*color: rgb(20, 20, 20);*/
 }
 
 span {
   float: right;
-  transform: translate(0, -90px);
+  transform: translate(0, -115px);
+}
+.btn3{
+  background-color: rgb(15,135,255);
 }
 
 .centered-content {
