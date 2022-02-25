@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { User } from './modules/shared/models/User';
 
 @Injectable({
@@ -6,7 +7,7 @@ import { User } from './modules/shared/models/User';
 })
 export class TokenService {
 
-  constructor() { }
+  constructor(private router:Router) { }
   public setUser(user: User): void {
     localStorage.setItem("user", JSON.stringify(user));
   }
@@ -24,5 +25,9 @@ export class TokenService {
   public getToken(): string {
     return localStorage.getItem("token") ?? "";
   }
-
+  public redirectIfNotSignedIn():void{
+    if(this.getToken()==""){
+      this.router.navigate(["/client/login"]);
+    }
+  }
 }

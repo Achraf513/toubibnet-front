@@ -30,9 +30,9 @@ export class HomeScreenComponent implements OnInit {
           url: "/questions"
         },
         {
-          name: "Admin",
+          name: "Profile",
           styleClasses: "nav-item",
-          url: "/admin/login"
+          url: "/client/profile"
         }
       ]);
     }else{

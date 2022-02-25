@@ -17,21 +17,6 @@ export class AppComponent {
     this.routingService.routesEmitter.subscribe((data) => {
       this.routesLinks = data;
     });
-    this.routingService.changeRoutes([{
-      name: "Admin",
-      styleClasses: "nav-item",
-      url: "/admin/login"
-    },
-      {
-        name: "Question",
-        styleClasses: "nav-item",
-        url: "/questions"
-    },
-    {
-      name: "Médecin",
-      styleClasses: "nav-item",
-      url: "/client/viewDoctors"
-    }]);
   }
   navigateTo(url: String) {
     this.router.navigate([url])
