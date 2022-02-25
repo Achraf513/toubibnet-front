@@ -22,7 +22,7 @@ export class SignUpUserComponent implements OnInit {
   ngOnInit() {
   }
   signUp(){
-    this.signUpService.signUp(this.userInfo).subscribe(()=>{
+    this.signUpService.signUpUser(this.userInfo).subscribe(()=>{
       alert("SUCCESS")
     },
     (error) =>console.log(error)

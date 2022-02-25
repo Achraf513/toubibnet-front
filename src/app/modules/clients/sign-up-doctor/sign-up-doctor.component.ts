@@ -25,7 +25,8 @@ export class SignUpDoctorComponent implements OnInit {
       description:"",
       address:"",
     }
-  constructor(private signUpDoctorService:SignUpDoctorService) { 
+
+  constructor(private signUpDoctorService:SignUpDoctorService) {
     for (let log in ESpeciality) {
       if (isNaN(Number(log))) {
          this.listSpecialities.push(log);
@@ -35,7 +36,6 @@ export class SignUpDoctorComponent implements OnInit {
       if (isNaN(Number(log))) {
          this.listGovernorates.push(log);
      }
-
     }
     console.log(this.listGovernorates)
   }
@@ -43,6 +43,7 @@ export class SignUpDoctorComponent implements OnInit {
   ngOnInit() {
   }
   signUp(){
+    console.log(this.doctorInfo);
     this.signUpDoctorService.signUp(this.doctorInfo).subscribe(()=>{
       alert("SUCCESS")
     },

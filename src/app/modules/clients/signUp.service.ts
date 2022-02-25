@@ -10,7 +10,7 @@ export class SignUpService {
   apiURL: string = "http://localhost:8080/"
 
 constructor(private http: HttpClient) { }
-  signUp(user: User): Observable<void> {
-  return this.http.post<void>(this.apiURL+"auth/signup",user);
+  signUpUser(user: User): Observable<void> {
+  return this.http.post<void>(this.apiURL+"auth/signup/user",user);
 }
 }
