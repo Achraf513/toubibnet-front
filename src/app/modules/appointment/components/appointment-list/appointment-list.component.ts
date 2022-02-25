@@ -20,7 +20,7 @@ export class AppointmentListComponent implements OnInit {
   selectedTime!:Date;
   msgs: any[] = [];
   position!: string;
-
+  viewDates:boolean=false;
   
   constructor(private appointmentService:AppointmentService,private route:ActivatedRoute,
     private confirmationService: ConfirmationService, ) { }
@@ -59,6 +59,7 @@ export class AppointmentListComponent implements OnInit {
     let year=this.date.getFullYear();
     this.appointmentService.getAvailableAppointments(this.doctorId,day,month,year).subscribe((response:Date[])=>{
       this.availableDates=response;
+      this.viewDates=true;
     });
   }
   onHourSelected(date:Date){
