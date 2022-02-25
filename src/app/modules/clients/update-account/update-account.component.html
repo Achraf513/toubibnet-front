@@ -2,20 +2,21 @@
     <div class="content-subSection center">
         <h5>Modifier vos informations personnelles ?</h5>
         <div class="col-1-2 leftcol">
-            <input type="text" name="firstName" pInputText placeholder="Entrer votre prenom">
-            <input type="text" name="lastName" pInputText placeholder="Entrer votre nom">
+            <input type="text" name="firstName" pInputText placeholder="Entrer votre prenom" [(ngModel)]="user.firstName">
+            <input type="text" name="lastName" pInputText placeholder="Entrer votre nom" [(ngModel)]="user.lastName">
             <p-dropdown *ngIf="isDoctor" [style]="{'width':'100%', 'marginBottom':'5px', 'height': '40px'}" [options]="specialities"
                 [(ngModel)]="selectedSpecialty"></p-dropdown>
 
         </div>
         <div class="col-1-2 rightcol">
-            <input type="text" name="phoneNumber" pInputText placeholder="Numéro de téléphone">
-            <input type="email" name="email" pInputText placeholder="Entrer votre email">
+            <input type="text" name="phoneNumber" pInputText placeholder="Numéro de téléphone" [(ngModel)]="user.phoneNumber">
+            <input type="email" name="email" pInputText placeholder="Entrer votre email" [(ngModel)]="user.email">
             <p-dropdown *ngIf="isDoctor" [style]="{'width':'100%', 'marginBottom':'5px', 'height': '40px'}" [options]="governorates"
                 [(ngModel)]="selectedGovernorate"></p-dropdown>
         </div>
         <div class="col-1-1">
-            <textarea *ngIf="isDoctor" type="text" pInputText placeholder="Description"></textarea>
+            <input type="address" pInputText placeholder="address" [(ngModel)]="user.address">
+            <textarea *ngIf="isDoctor" type="text" pInputText placeholder="Description" [(ngModel)]="user.description"></textarea>
             <input type="password" pInputText placeholder="Mot de passe">
             <input type="password" pInputText placeholder="Retapez le mot de passe">
         <button pButton type="button" label="Soumettre"></button>

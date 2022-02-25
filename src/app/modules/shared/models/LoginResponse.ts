@@ -1,3 +1,6 @@
+import { User } from "./User";
+
 export interface LoginResponse {
-  jwttoken: string;
+  jwttoken:string;
+  user:User;
 }
