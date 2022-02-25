@@ -32,6 +32,11 @@ export class ViewDoctorsComponent implements OnInit {
           url: "/client/viewDoctors"
         },
         {
+          name: "Question",
+          styleClasses: "nav-item",
+          url: "/questions"
+        },
+        {
           name: "Admin",
           styleClasses: "nav-item",
           url: "/admin/login"

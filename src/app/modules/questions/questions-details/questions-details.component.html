@@ -13,10 +13,11 @@
     <label for="answers">Answers</label>
     <section id="answers" class="content-subSection" *ngFor="let answer of answers">
       <p class="date">{{answer.date | date: 'dd-MM-yyyy'}}</p>
+      <h6>{{answer.doctor.firstName+' '+ answer.doctor.lastName}}</h6>
       <p>{{answer.description}}</p>
       <span *ngIf="answer.doctor.id == currentUser" class="icons">
-        <i (click)="edit(answer)" class="pi pi-pencil"></i>
-      <i (click)="delete(answer)" class="pi pi-trash"></i>
+        <i (click)="edit(answer)" class=" pi pi-pencil"></i>
+        <i (click)="delete(answer)" class="pi pi-trash"></i>
       </span>
     </section>
     <div *ngIf="isDoctor()">
