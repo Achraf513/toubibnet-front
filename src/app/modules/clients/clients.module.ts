@@ -1,3 +1,5 @@
+import { AdminModule } from './../admin/admin.module';
+import { UserLoginComponent } from './user-login/user-login.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -19,6 +21,7 @@ import { CheckAccountComponent } from './check-account/check-account.component';
     SignUpComponent,
     UpdateAccountComponent,
     CheckAccountComponent,
+    UserLoginComponent,
   ],
   imports: [
     HttpClientModule,
@@ -28,7 +31,8 @@ import { CheckAccountComponent } from './check-account/check-account.component';
     DropdownModule,
     InputTextModule,
     ButtonModule,
-    
+    AdminModule
+
   ],
   providers: [
     HttpClient,
