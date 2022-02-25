@@ -41,6 +41,7 @@ export class AppointmentListComponent implements OnInit {
   getDoctor(id:number){
     this.appointmentService.getDoctor(id).subscribe((response:Doctor)=>{
       this.doctor=response;
+      console.log(this.doctor)
     })
   }
   formatDate(date:Date):string{

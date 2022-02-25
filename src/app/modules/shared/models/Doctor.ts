@@ -3,6 +3,6 @@ import { ESpecialty } from "./enum/ESpecialty";
 import { User } from "./User";
 
 export interface Doctor extends User {
-    specialty:ESpecialty,
+    specialty:string,
     governorate:EGovernorate,
 }

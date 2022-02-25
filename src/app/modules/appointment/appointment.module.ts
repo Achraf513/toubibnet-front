@@ -13,6 +13,8 @@ import {ButtonModule} from 'primeng/button';
 import {ConfirmationService} from 'primeng/api';
 import { MessagesModule } from 'primeng/messages';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { AvatarModule } from "primeng/avatar";
+
 @NgModule({
   declarations: [
     AppointmentListComponent,
@@ -27,7 +29,9 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
     HttpClientModule,
     ButtonModule,
     MessagesModule,
-    ConfirmDialogModule
+    ConfirmDialogModule,
+    AvatarModule
+    
 
 
 
