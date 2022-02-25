@@ -11,6 +11,6 @@ export class SignUpDoctorService {
 
   constructor(private http: HttpClient) { }
     signUp(doctor: Doctor): Observable<void> {
-    return this.http.post<void>(this.apiURL+"auth/signup",doctor);
+    return this.http.post<void>(this.apiURL+"auth/signup/doctor",doctor);
   }
   }
