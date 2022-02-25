@@ -10,7 +10,7 @@ import { ViewDoctorsComponent } from './view-doctors/view-doctors.component';
 import { DoctorDetailsComponent } from './doctor-details/doctor-details.component';
 import { ClientsRoutingModule } from './clients-routing.module';
 import {ButtonModule} from 'primeng-lts/button';
-import { SignUpComponent } from './signUp/signUp.component';
+import { SignUpComponent } from './sign-up-user/sign-up-user.component';
 import { UpdateAccountComponent } from './update-account/update-account.component';
 import { CheckAccountComponent } from './check-account/check-account.component';
 
