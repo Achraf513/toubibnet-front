@@ -15,9 +15,10 @@ import { QuestionsModule } from './modules/questions/questions.module';
 import { SharedModule } from './modules/shared/shared.module';
 
 import {InputTextModule} from 'primeng-lts/inputtext';
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
