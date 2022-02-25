@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
-import { RouteNavigator } from './modules/shared/models/RouteNavigator';
-import { RoutingService } from './routing.service';
-import { Router } from '@angular/router';
+import {Component} from '@angular/core';
+import {RouteNavigator} from './modules/shared/models/RouteNavigator';
+import {RoutingService} from './routing.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -17,21 +17,6 @@ export class AppComponent {
     this.routingService.routesEmitter.subscribe((data) => {
       this.routesLinks = data;
     });
-    this.routingService.changeRoutes([{
-      name: "Admin",
-      styleClasses: "nav-item",
-      url: "/admin/login"
-    },
-      {
-        name: "Question",
-        styleClasses: "nav-item",
-        url: "/questions"
-    },
-    {
-      name: "Médecin",
-      styleClasses: "nav-item",
-      url: "/client/viewDoctors"
-    }]);
   }
   navigateTo(url: String) {
     this.router.navigate([url])

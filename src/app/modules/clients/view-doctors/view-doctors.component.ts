@@ -4,6 +4,7 @@ import { DoctorsService } from '../doctors.service';
 import { ESpeciality } from '../../shared/models/enum/ESpecialty';
 import { EGovernorate } from '../../shared/models/enum/EGovernorate';
 import { RoutingService } from 'src/app/routing.service';
+import { TokenService } from 'src/app/token.service';
 @Component({
   selector: 'app-view-doctors',
   templateUrl: './view-doctors.component.html',
@@ -19,8 +20,10 @@ export class ViewDoctorsComponent implements OnInit {
   displayedDoctors: Array<Doctor> = [];
 
   constructor(private doctorsService: DoctorsService,
-    private routingService: RoutingService) {
-      this.routingService.changeRoutes([
+    private routingService: RoutingService,
+    private tokenService:TokenService) {
+    this.tokenService.redirectIfNotSignedIn();
+    this.routingService.changeRoutes([
         {
           name: "Accueil",
           styleClasses: "nav-item",
@@ -37,9 +40,9 @@ export class ViewDoctorsComponent implements OnInit {
           url: "/questions"
         },
         {
-          name: "Admin",
+          name: "Profile",
           styleClasses: "nav-item",
-          url: "/admin/login"
+          url: "/client/profile"
         }
         ]);
   }

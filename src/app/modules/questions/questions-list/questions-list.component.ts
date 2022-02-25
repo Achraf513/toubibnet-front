@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {Question} from "../../shared/models/Question";
 import {QuestionService} from "../services/question.service";
 import {Router} from "@angular/router";
+import { RoutingService } from 'src/app/routing.service';
+import { TokenService } from 'src/app/token.service';
 
 @Component({
   selector: 'app-questions-list',
@@ -11,12 +13,37 @@ import {Router} from "@angular/router";
 export class QuestionsListComponent implements OnInit {
 
   constructor(private questionService : QuestionService,
-              private router: Router) { }
+    private routingService:RoutingService,
+    private tokenService:TokenService,
+    private router: Router) { }
   questions !: Question[];
   id : number =1;
 
   ngOnInit(): void {
+    this.tokenService.redirectIfNotSignedIn();
     this.listOfQuestion();
+    this.routingService.changeRoutes([
+      {
+        name: "Accueil",
+        styleClasses: "nav-item",
+        url: ""
+      },
+      {
+        name: "Médecin",
+        styleClasses: "nav-item ",
+        url: "/client/viewDoctors"
+      },
+      {
+        name: "Question",
+        styleClasses: "nav-item active",
+        url: "/questions"
+      },
+      {
+        name: "Profile",
+        styleClasses: "nav-item",
+        url: "/client/profile"
+      }
+    ]);
   }
 
   listOfQuestion(){
