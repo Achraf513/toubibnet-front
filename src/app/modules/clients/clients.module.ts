@@ -1,3 +1,5 @@
+import { AdminModule } from './../admin/admin.module';
+import { UserLoginComponent } from './user-login/user-login.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -21,6 +23,7 @@ import {InputTextareaModule} from 'primeng-lts/inputtextarea';
     UpdateAccountComponent,
     CheckAccountComponent,
     SignUpDoctorComponent,
+    UserLoginComponent,
   ],
   imports: [
     HttpClientModule,
@@ -30,7 +33,10 @@ import {InputTextareaModule} from 'primeng-lts/inputtextarea';
     DropdownModule,
     InputTextModule,
     ButtonModule,
+
     InputTextareaModule,
+    AdminModule
+
   ],
   providers: [
     HttpClient,
