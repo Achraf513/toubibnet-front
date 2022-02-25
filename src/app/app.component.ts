@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
-import { RouteNavigator } from './modules/shared/models/RouteNavigator';
-import { RoutingService } from './routing.service';
-import { Router } from '@angular/router';
+import {Component} from '@angular/core';
+import {RouteNavigator} from './modules/shared/models/RouteNavigator';
+import {RoutingService} from './routing.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-root',
