@@ -25,12 +25,15 @@ import {ButtonModule} from 'primeng/button';
     CalendarModule,
     FormsModule,
     HttpClientModule,
-    ButtonModule
+    ButtonModule,
+
+
     
     
   ],
   providers:[
-    AppointmentService
+    AppointmentService,
+
   ]
 })
 export class AppointmentModule { }

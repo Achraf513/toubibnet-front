@@ -7,8 +7,8 @@ import {RadioButtonModule} from 'primeng/radiobutton';
 
 
 const routes: Routes = [
-  {path:':id',component:AppointmentComponent,children:[
-    {path:'list',component:AppointmentListComponent},
+  {path:'',component:AppointmentComponent,children:[
+    {path:'list/:id',component:AppointmentListComponent},
     {path:'check',component:CheckAppointmentComponent}
   ]}
   

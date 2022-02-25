@@ -1,9 +1,10 @@
 import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Doctor } from 'src/app/modules/shared/models/Doctor';
 import Appointment from '../../models/Appointment';
-import Doctor from '../../models/Doctor';
-import User from '../../models/User';
 import { AppointmentService } from '../../services/appointment.service';
+
 
 @Component({
   selector: 'app-appointment-list',
@@ -11,13 +12,14 @@ import { AppointmentService } from '../../services/appointment.service';
   styleUrls: ['./appointment-list.component.css']
 })
 export class AppointmentListComponent implements OnInit {
-  doctorId=2;
+  doctorId!:number;
+  doctor!:Doctor;
   date=new Date();
   invalidDates: Array<Date>=[];
   availableDates: Date[]=[];
   selectedTime!:Date;
   
-  constructor(private appointmentService:AppointmentService) { }
+  constructor(private appointmentService:AppointmentService,private route:ActivatedRoute) { }
 
   ngOnInit(): void {
     for(let i=0;i<30;i++){
@@ -25,6 +27,17 @@ export class AppointmentListComponent implements OnInit {
       invalidDate.setDate(new Date().getDate() - i-1)
       this.invalidDates.push(invalidDate);
     }
+    this.route.params.subscribe((params)=>{
+      console.log(params)
+      let id=params['id'];
+      this.doctorId=id;
+      this.getDoctor(id);
+    })
+  }
+  getDoctor(id:number){
+    this.appointmentService.getDoctor(id).subscribe((response:Doctor)=>{
+      this.doctor=response;
+    })
   }
   formatDate(date:Date):string{
     date=new Date(date);
@@ -35,6 +48,7 @@ export class AppointmentListComponent implements OnInit {
     return formatedDate;
   }
   onDateSelected(){
+    this.availableDates=[];
     let day=this.date.getDate();
     let month=this.date.getMonth()+1;
     let year=this.date.getFullYear();
@@ -47,14 +61,13 @@ export class AppointmentListComponent implements OnInit {
       id: 1
 
     };
-    let doctor:any={
-      id: 2
-
-    };
-    let appointment=new Appointment(date,user,doctor);
+    let appointment=new Appointment(date,user,this.doctor);
+    console.log(appointment)
     this.appointmentService.addAppointment(appointment).subscribe((response)=>{
       console.log(response);
     })
   }
+
+  
 
 }
