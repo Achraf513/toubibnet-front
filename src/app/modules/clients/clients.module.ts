@@ -8,17 +8,19 @@ import { ViewDoctorsComponent } from './view-doctors/view-doctors.component';
 import { DoctorDetailsComponent } from './doctor-details/doctor-details.component';
 import { ClientsRoutingModule } from './clients-routing.module';
 import {ButtonModule} from 'primeng-lts/button';
-import { SignUpComponent } from './sign-up-user/sign-up-user.component';
+import { SignUpUserComponent } from './sign-up-user/sign-up-user.component';
 import { UpdateAccountComponent } from './update-account/update-account.component';
 import { CheckAccountComponent } from './check-account/check-account.component';
-
+import { SignUpDoctorComponent } from './sign-up-doctor/sign-up-doctor.component';
+import {InputTextareaModule} from 'primeng-lts/inputtextarea';
 @NgModule({
   declarations: [
     ViewDoctorsComponent,
     DoctorDetailsComponent,
-    SignUpComponent,
+    SignUpUserComponent,
     UpdateAccountComponent,
     CheckAccountComponent,
+    SignUpDoctorComponent,
   ],
   imports: [
     HttpClientModule,
@@ -28,7 +30,7 @@ import { CheckAccountComponent } from './check-account/check-account.component';
     DropdownModule,
     InputTextModule,
     ButtonModule,
-    
+    InputTextareaModule,
   ],
   providers: [
     HttpClient,

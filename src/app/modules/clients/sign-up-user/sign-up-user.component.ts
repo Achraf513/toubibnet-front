@@ -7,7 +7,7 @@ import { SignUpService } from '../signUp.service';
   templateUrl: './sign-up-user.component.html',
   styleUrls: ['./sign-up-user.component.css']
 })
-export class SignUpComponent implements OnInit {
+export class SignUpUserComponent implements OnInit {
   userInfo:User ={
     id:0,
     firstName:"",
