@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { SignUpComponent } from './signUp/signUp.component';
+import { UpdateAccountComponent } from './update-account/update-account.component';
 import { ViewDoctorsComponent } from './view-doctors/view-doctors.component';
 
 const routes: Routes = [
   {path:"viewDoctors",component:ViewDoctorsComponent},
-  {path:"signUp/user",component:SignUpComponent}
+  {path:"signUp/user",component:SignUpComponent},
+  {path:"updateAccount",component:UpdateAccountComponent},
 ];
 
 

@@ -9,12 +9,16 @@ import { DoctorDetailsComponent } from './doctor-details/doctor-details.componen
 import { ClientsRoutingModule } from './clients-routing.module';
 import {ButtonModule} from 'primeng-lts/button';
 import { SignUpComponent } from './signUp/signUp.component';
+import { UpdateAccountComponent } from './update-account/update-account.component';
+import { CheckAccountComponent } from './check-account/check-account.component';
 
 @NgModule({
   declarations: [
     ViewDoctorsComponent,
     DoctorDetailsComponent,
     SignUpComponent,
+    UpdateAccountComponent,
+    CheckAccountComponent,
   ],
   imports: [
     HttpClientModule,
