@@ -9,10 +9,10 @@ import { CalendarModule } from 'primeng/calendar';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AppointmentService } from './services/appointment.service';
-import {SelectButtonModule} from 'primeng/selectbutton';
 import {ButtonModule} from 'primeng/button';
-
-
+import {ConfirmationService} from 'primeng/api';
+import { MessagesModule } from 'primeng/messages';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
 @NgModule({
   declarations: [
     AppointmentListComponent,
@@ -26,13 +26,17 @@ import {ButtonModule} from 'primeng/button';
     FormsModule,
     HttpClientModule,
     ButtonModule,
+    MessagesModule,
+    ConfirmDialogModule
+
+
 
 
     
     
   ],
   providers:[
-    AppointmentService,
+    AppointmentService,ConfirmationService
 
   ]
 })

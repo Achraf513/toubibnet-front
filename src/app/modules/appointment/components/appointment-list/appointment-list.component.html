@@ -4,6 +4,11 @@
 
 
 <h5>Choisissez l'heure:</h5>
-<button (click)="addAppointment(date)" *ngFor="let date of this.availableDates" id="dateButton" pButton pRipple type="button" class="p-button-raised p-button-info">
+<button (click)="onHourSelected(date)" *ngFor="let date of this.availableDates" id="dateButton" pButton pRipple type="button" class="p-button-raised p-button-info">
 <p>{{formatDate(date)}}</p>
 </button>
+<br>
+<p-confirmDialog [style]="{width: '50vw'}" [baseZIndex]="10000"></p-confirmDialog>
+<p-button (click)="confirm()" icon="pi pi-check" label="Confirmer"></p-button>
+<p-confirmDialog [style]="{width: '50vw'}" key="positionDialog" [position]="position" [baseZIndex]="10000"></p-confirmDialog>
+<p-messages [value]="msgs"></p-messages>

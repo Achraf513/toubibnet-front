@@ -4,7 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Doctor } from 'src/app/modules/shared/models/Doctor';
 import Appointment from '../../models/Appointment';
 import { AppointmentService } from '../../services/appointment.service';
-
+import {ConfirmationService} from 'primeng/api';
 
 @Component({
   selector: 'app-appointment-list',
@@ -18,8 +18,12 @@ export class AppointmentListComponent implements OnInit {
   invalidDates: Array<Date>=[];
   availableDates: Date[]=[];
   selectedTime!:Date;
+  msgs: any[] = [];
+  position!: string;
+
   
-  constructor(private appointmentService:AppointmentService,private route:ActivatedRoute) { }
+  constructor(private appointmentService:AppointmentService,private route:ActivatedRoute,
+    private confirmationService: ConfirmationService, ) { }
 
   ngOnInit(): void {
     for(let i=0;i<30;i++){
@@ -56,7 +60,11 @@ export class AppointmentListComponent implements OnInit {
       this.availableDates=response;
     });
   }
-  addAppointment(date:Date){
+  onHourSelected(date:Date){
+    this.selectedTime=date;
+  }
+  addAppointment(){
+    let date=this.selectedTime;
     let user:any={
       id: 1
 
@@ -67,7 +75,24 @@ export class AppointmentListComponent implements OnInit {
       console.log(response);
     })
   }
+  confirm() {
+    this.confirmationService.confirm({
+        message: 'Etes vous sur de prendre le rendez vous?',
+        header: 'Confirmation',
+        icon: 'pi pi-exclamation-triangle',
+        accept: () => {
+          console.log("accepted");
+            this.msgs = [{severity:'info', summary:'Succèes', detail:'Rendez-vous ajouté avec succès!'}];
+            this.addAppointment();
+        },
+        reject: () => {
+            this.msgs = [{severity:'info', summary:'Echec', detail:'Rendez vous non ajouté!'}];
+            console.log("rejected");
+        }
+    });
+}
+  
+}
 
   
 
-}
