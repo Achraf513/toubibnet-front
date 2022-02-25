@@ -54,3 +54,12 @@ button{
 .input-add-btn {
   margin: 45px 0 0 46%;
 }
+.btn1{
+  background-color: rgb(236, 92, 140);
+  color: rgb(20,20,20);
+}
+.btn2{
+  background-color: rgb(255, 185, 35);
+  color: rgb(20,20,20);
+>>>>>>> origin/feature/question
+}
