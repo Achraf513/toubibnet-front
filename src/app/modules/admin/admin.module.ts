@@ -19,6 +19,10 @@ import {ButtonModule} from 'primeng-lts/button';
     InputTextModule,
     FormsModule,
     ButtonModule,
+    ButtonModule
+  ],
+  exports: [
+    LoginComponent
   ]
 })
 export class AdminModule { }

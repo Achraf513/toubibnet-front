@@ -16,7 +16,7 @@ export class CheckAccountComponent implements OnInit {
     lastName:"lastName",
     phoneNumber:"50504040",
     email:"email@EmailValidator.com",
-    passwordHash:"password hash",
+    password:"password hash",
     roles:[],
     speciality:ESpeciality.pneumenologie,
     governorate:EGovernorate.Ariana,
