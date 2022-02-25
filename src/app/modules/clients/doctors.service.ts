@@ -9,6 +9,7 @@ import { TokenService } from 'src/app/token.service';
 })
 export class DoctorsService {
   doctorsUrl: string = "http://localhost:8080/doctor/all"
+
   headers: HttpHeaders = new HttpHeaders()
 
   constructor(private http: HttpClient,
@@ -19,6 +20,10 @@ export class DoctorsService {
   getDoctors(): Observable<Doctor[]> {
     return this.http.get<Doctor[]>(this.doctorsUrl, { headers: this.headers })
   }
+  getDoctor(id:number): Observable<Doctor> {
+    return this.http.get<Doctor>(`http://localhost:8080/doctor/find/${id}`, { headers: this.headers })
+  }
+
 
   getFilteredDoctors(name: String, selectedSpecialty: String, selectedGovernorate: String, doctors: Array<Doctor>): Doctor[] {
     return doctors.filter(doctor => this.nameIncluded(doctor, name))
