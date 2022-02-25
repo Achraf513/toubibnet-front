@@ -5,7 +5,7 @@ import { ViewDoctorsComponent } from './view-doctors/view-doctors.component';
 
 const routes: Routes = [
   {path:"viewDoctors",component:ViewDoctorsComponent},
-  {path:"signUp",component:SignUpComponent}
+  {path:"signUp/user",component:SignUpComponent}
 ];
 
 

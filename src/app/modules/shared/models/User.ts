@@ -5,6 +5,6 @@ export interface User{
     lastName:String,
     phoneNumber:String,
     email:String,
-    passwordHash:String,
+    password:String,
     roles:Role[]
 }
