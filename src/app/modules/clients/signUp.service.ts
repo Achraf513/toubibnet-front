@@ -10,8 +10,8 @@ import { User } from '../shared/models/User';
 export class SignUpService {
   signUpUrl: string = "http://localhost:8080/"
 
-constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { }
   signUp(user: User): Observable<SignUpResponse> {
-  return this.http.post<SignUpResponse>(this.signUpUrl+"client/signUp",user);
-}
+    return this.http.post<SignUpResponse>(this.signUpUrl + "client/signUp", user);
+  }
 }
