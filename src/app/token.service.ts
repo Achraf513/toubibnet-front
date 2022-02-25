@@ -1,3 +1,4 @@
+import { Doctor } from './modules/shared/models/Doctor';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from './modules/shared/models/User';
@@ -25,6 +26,27 @@ export class TokenService {
   public getToken(): string {
     return localStorage.getItem("token") ?? "";
   }
+  public setDoctor(doctor:Doctor): void{
+    localStorage.setItem("doctor", JSON.stringify(doctor));
+  }
+  public getDoctor(): Doctor | null {
+    let doctorString = localStorage.getItem("doctor");
+    if (doctorString == null) {
+      return null;
+    }
+    let doctor: Doctor = JSON.parse(doctorString)
+    return doctor;
+  }
+  public clearDoctor(){
+    localStorage.removeItem("doctor");
+  }
+  public clearUser(){
+    localStorage.removeItem("user");
+  }
+  public clearToken(){
+    localStorage.removeItem("token");
+  }
+
   public redirectIfNotSignedIn():void{
     if(this.getToken()==""){
       this.router.navigate(["/client/login"]);
