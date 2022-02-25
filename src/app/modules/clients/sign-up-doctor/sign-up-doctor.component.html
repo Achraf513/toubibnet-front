@@ -1,12 +1,16 @@
 <div class="fullContent-container">
   <div class="content-subSection center">
-    <h5>Inscription</h5>
+    <h5>Inscription médecin</h5>
 
-    <input type="text" name="firstName" pInputText placeholder="firstName" [(ngModel)]="userInfo.firstName">
-    <input type="text" name="lastName" pInputText placeholder="lastName" [(ngModel)]="userInfo.lastName">
-    <input type="text" name="phoneNumber" pInputText placeholder="phoneNumber" [(ngModel)]="userInfo.phoneNumber">
-    <input type="email" name="email" pInputText placeholder="Email" [(ngModel)]="userInfo.email">
-    <input type="password" pInputText placeholder="Password" [(ngModel)]="userInfo.password">
+    <input type="text" name="firstName" pInputText placeholder="Prenom" [(ngModel)]="doctorInfo.firstName">
+    <input type="text" name="lastName" pInputText placeholder="Nom" [(ngModel)]="doctorInfo.lastName">
+    <input type="text" name="phoneNumber" pInputText placeholder="Telephone" [(ngModel)]="doctorInfo.phoneNumber">
+    <input type="email" name="email" pInputText placeholder="Email" [(ngModel)]="doctorInfo.email">
+    <input type="password" pInputText placeholder="Mot de pass" [(ngModel)]="doctorInfo.password">
+    <p-dropdown [options]="listSpecialities" [(ngModel)]="doctorInfo.speciality" placeholder="Specialité" ></p-dropdown>
+    <p-dropdown [options]="listGovernorates" [(ngModel)]="doctorInfo.governorate" placeholder="Governorate"></p-dropdown>
+    <input type="text" name="adresse" pInputText placeholder="adresse" [(ngModel)]="doctorInfo.address" >
+    <textarea pInputTextarea [(ngModel)]="doctorInfo.description" placeholder="description" [rows]="5" [cols]="30" ></textarea>
     <button pButton type="button" (click)="signUp()" label="Soumettre" ></button>
   </div>
 </div>
