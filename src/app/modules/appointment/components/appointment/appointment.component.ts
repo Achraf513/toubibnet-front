@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {RadioButtonModule} from 'primeng-lts/radiobutton';
-import { PrimeNGConfig } from 'primeng-lts/api';
 import { RoutingService } from 'src/app/routing.service';
 import { TokenService } from 'src/app/token.service';
 
@@ -11,7 +9,7 @@ import { TokenService } from 'src/app/token.service';
 })
 export class AppointmentComponent implements OnInit {
 
-  constructor(private primeNGConfig: PrimeNGConfig,
+  constructor(
     private tokenService: TokenService,
     private routingService:RoutingService) { }
 
