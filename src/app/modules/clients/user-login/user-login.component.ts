@@ -3,11 +3,11 @@ import { DoctorsService } from './../doctors.service';
 import { TokenService } from './../../../token.service';
 import { Component, OnInit } from '@angular/core';
 import { RoutingService } from 'src/app/routing.service';
-import { LoginService } from '../../admin/services/login.service';
 import { Login } from '../../shared/models/Login';
 import { LoginResponse } from '../../shared/models/LoginResponse';
 import { Router } from '@angular/router';
 import { MessageService } from 'primeng-lts/api';
+import { SignInService } from '../sign-in.service';
 
 @Component({
   selector: 'app-user-login',
@@ -17,7 +17,7 @@ import { MessageService } from 'primeng-lts/api';
 export class UserLoginComponent implements OnInit {
 
   constructor(private routingService: RoutingService,
-    private loginService:LoginService,private messageService: MessageService,
+    private signInService:SignInService,private messageService: MessageService,
     private tokenService:TokenService,
     private router:Router,
     private doctorsService:DoctorsService) {
@@ -32,7 +32,7 @@ export class UserLoginComponent implements OnInit {
   }
 
   login(login:Login){
-    this.loginService.login(login).subscribe((loginResponse:LoginResponse)=>{
+    this.signInService.login(login).subscribe((loginResponse:LoginResponse)=>{
       this.tokenService.setUser(loginResponse.user);
       this.tokenService.setToken(loginResponse.jwttoken);
       if(loginResponse.user.roles.find((role)=>role.name=="DOCTOR")){
