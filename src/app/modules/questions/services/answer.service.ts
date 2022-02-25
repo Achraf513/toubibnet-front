@@ -25,7 +25,7 @@ export class AnswerService {
   }
 
   public add(answer: Answer): Observable<Answer> {
-    return this.httpClient.post<Answer>(this.answerUrl + '/question/' + answer.questionId + '/doctor/' + answer.doctorId, answer);
+    return this.httpClient.post<Answer>(this.answerUrl + '/question/' + answer.question.id + '/doctor/' + answer.doctor.id, answer);
   }
 
   public update(answer: Answer): Observable<Answer> {

@@ -58,3 +58,9 @@ i {
   margin-right: 10px;
   color: rgb(0, 117, 153);
 }
+
+.icons {
+  display: inline-block;
+  margin-right: 0;
+  transform: translate(0, -10px);
+}
