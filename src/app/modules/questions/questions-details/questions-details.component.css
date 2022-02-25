@@ -36,9 +36,11 @@ span {
 }
 
 .date {
-  text-align: right;
+  float: right;
+  text-align: center;
   font-size: medium;
   color: rgb(0, 117, 153);
+  transform: translate(10px,-17px);
 }
 
 .textarea-comment {
@@ -60,7 +62,33 @@ i {
 }
 
 .icons {
-  display: inline-block;
+  float: right;
   margin-right: 0;
-  transform: translate(0, -10px);
+  transform: translate(0, -30px);
+}
+
+.title {
+  float: left;
+}
+
+.date-question {
+  float: right;
+}
+
+.username {
+  width: max-content;
+  margin-left: 90%;
+}
+
+.question-content {
+  color: rgb(0, 35, 75);
+  font-size: large;
+  margin-bottom: 40px;
+}
+
+.content {
+  margin-top: 20px;
+  color: rgb(0, 35, 75);
+  font-size: large;
+  margin-bottom: 40px;
 }

@@ -1,10 +1,11 @@
-import { Role } from './Role';
-export interface User{
-    id:number,
-    firstName:String,
-    lastName:String,
-    phoneNumber:String,
-    email:String,
-    passwordHash:String,
-    roles:Role[]
+import {Role} from './Role';
+
+export interface User {
+  id: number,
+  firstName: string,
+  lastName: string,
+  phoneNumber: string,
+  email: string,
+  passwordHash: string,
+  roles: Role[]
 }
