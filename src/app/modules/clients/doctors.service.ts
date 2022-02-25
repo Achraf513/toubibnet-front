@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Doctor } from '../shared/models/Doctor';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { TokenService } from 'src/app/token.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,9 +11,9 @@ export class DoctorsService {
   doctorsUrl: string = "http://localhost:8080/doctor/all"
   headers: HttpHeaders = new HttpHeaders()
 
-
-  constructor(private http: HttpClient) {
-    this.headers = this.headers.append('token', 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0QGdtYWlsLmNvbSIsImV4cCI6MTY0NTc5OTk5OSwiaWF0IjoxNjQ1NzgxOTk5fQ.g4NsAILSW4eNWRHux8zvBOzkHtU8wG4mZ5-9ZrRjKqH0eqoxxzCxGzXVogOLPgvDHltYt2mHQsUi7_UhzvRLsQ')
+  constructor(private http: HttpClient,
+    private tokenService:TokenService) {
+    this.headers = this.headers.append('token',this.tokenService.getToken() )
   }
 
   getDoctors(): Observable<Doctor[]> {

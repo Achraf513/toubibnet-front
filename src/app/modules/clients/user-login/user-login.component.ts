@@ -4,6 +4,8 @@ import { RoutingService } from 'src/app/routing.service';
 import { LoginService } from '../../admin/services/login.service';
 import { Login } from '../../shared/models/Login';
 import { LoginResponse } from '../../shared/models/LoginResponse';
+import { Router } from '@angular/router';
+import { MessageService } from 'primeng-lts/api';
 
 @Component({
   selector: 'app-user-login',
@@ -13,8 +15,9 @@ import { LoginResponse } from '../../shared/models/LoginResponse';
 export class UserLoginComponent implements OnInit {
 
   constructor(private routingService: RoutingService,
-    private loginService:LoginService,
-    private tokenService:TokenService ) {
+    private loginService:LoginService,private messageService: MessageService,
+    private tokenService:TokenService,
+    private router:Router) {
     this.routingService.changeRoutes([{
       name: "Accueil",
       styleClasses: "nav-item",
@@ -28,10 +31,15 @@ export class UserLoginComponent implements OnInit {
     this.loginService.login(login).subscribe((loginResponse:LoginResponse)=>{
       this.tokenService.setUser(loginResponse.user);
       this.tokenService.setToken(loginResponse.jwttoken);
-
+        this.router.navigate(["/home"])
     },
-    (error) =>console.log(error)
+    (error) => this.alert()
     );
   }
-
+  alert() {
+    this.messageService.clear("main");
+    setTimeout(()=>{
+    this.messageService.add({severity:'error',key: "main", summary:'Connexion impossible', detail:'Assurez-vous de saisir une adresse e-mail et un mot de passe valides.'});
+    },400)
+  }
 }

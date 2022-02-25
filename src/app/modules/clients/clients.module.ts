@@ -14,6 +14,9 @@ import { SignUpUserComponent } from './sign-up-user/sign-up-user.component';
 import { UpdateAccountComponent } from './update-account/update-account.component';
 import { CheckAccountComponent } from './check-account/check-account.component';
 import { SignUpDoctorComponent } from './sign-up-doctor/sign-up-doctor.component';
+import { ToastModule } from 'primeng-lts/toast';
+import {MessageService} from 'primeng-lts/api';
+
 @NgModule({
   declarations: [
     ViewDoctorsComponent,
@@ -32,10 +35,12 @@ import { SignUpDoctorComponent } from './sign-up-doctor/sign-up-doctor.component
     DropdownModule,
     InputTextModule,
     ButtonModule,
-    AdminModule
+    ToastModule,
+    AdminModule,
   ],
   providers: [
     HttpClient,
+    MessageService
   ]
 })
 export class ClientsModule { }
