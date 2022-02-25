@@ -15,6 +15,7 @@ import { SharedModule } from './modules/shared/shared.module';
 import { AdminModule } from './modules/admin/admin.module';
 import { HomeModule } from './modules/home/home.module';
 import '@angular/compiler'
+import { authInterceptorProviders } from './AuthInterceptor.service';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,7 @@ import '@angular/compiler'
     SharedModule,
     HomeModule
   ],
-  providers: [],
+  providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
