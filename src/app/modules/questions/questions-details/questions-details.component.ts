@@ -48,6 +48,7 @@ export class QuestionsDetailsComponent implements OnInit {
     if (this.confirmButton == "Add Comment") {
       this.answerService.add(this.answer).subscribe(data => {
           this.getAnswers();
+          this.comment="";
           console.log(data);
         }
       );

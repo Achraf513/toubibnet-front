@@ -10,9 +10,11 @@ const routes: Routes = [
       { path: 'admin', loadChildren:  () => import(`./modules/admin/admin.module`).then(m => m.AdminModule) },
       { path: 'client', loadChildren:  () => import(`./modules/clients/clients.module`).then(m => m.ClientsModule) },
       { path: 'questions', loadChildren:  () => import(`./modules/questions/questions.module`).then(m => m.QuestionsModule) },
+      {path:'appointment',loadChildren:()=>import('./modules/appointment/appointment.module').then((mod)=>mod.AppointmentModule)}
     ],
   },
   { path: '**', redirectTo: 'home', pathMatch: 'full' }
+
 ];
 
 @NgModule({
