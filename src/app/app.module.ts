@@ -17,7 +17,7 @@ import { HomeModule } from './modules/home/home.module';
 import {InputTextModule} from 'primeng-lts/inputtext';
 
 import { CalendarModule } from 'primeng/calendar';
-
+import { AppointmentModule } from './modules/appointment/appointment.module';
 
 @NgModule({
   declarations: [
@@ -36,7 +36,8 @@ import { CalendarModule } from 'primeng/calendar';
     PharmaciesModule,
     QuestionsModule,
     SharedModule,
-    HomeModule
+    HomeModule,
+    AppointmentModule
   ],
   providers: [],
   bootstrap: [AppComponent]
