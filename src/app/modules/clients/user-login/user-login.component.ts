@@ -1,3 +1,4 @@
+import { TokenService } from './../../../token.service';
 import { Component, OnInit } from '@angular/core';
 import { RoutingService } from 'src/app/routing.service';
 import { LoginService } from '../../admin/services/login.service';
@@ -11,7 +12,9 @@ import { LoginResponse } from '../../shared/models/LoginResponse';
 })
 export class UserLoginComponent implements OnInit {
 
-  constructor(private routingService: RoutingService,private loginService:LoginService) {
+  constructor(private routingService: RoutingService,
+    private loginService:LoginService,
+    private tokenService:TokenService ) {
     this.routingService.changeRoutes([{
       name: "Accueil",
       styleClasses: "nav-item",
@@ -23,7 +26,9 @@ export class UserLoginComponent implements OnInit {
   }
   login(login:Login){
     this.loginService.login(login).subscribe((loginResponse:LoginResponse)=>{
-      alert(loginResponse.jwttoken)
+      this.tokenService.setUser(loginResponse.user);
+      this.tokenService.setToken(loginResponse.jwttoken);
+
     },
     (error) =>console.log(error)
     );
