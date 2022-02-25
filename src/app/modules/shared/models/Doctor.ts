@@ -1,8 +1,10 @@
 import { EGovernorate } from "./enum/EGovernorate";
-import { ESpecialty } from "./enum/ESpecialty";
+import { ESpeciality } from "./enum/ESpecialty";
 import { User } from "./User";
 
 export interface Doctor extends User {
-    specialty:ESpecialty,
+    speciality:ESpeciality,
     governorate:EGovernorate,
+    description:String,
+    address:String,
 }

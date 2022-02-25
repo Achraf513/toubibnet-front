@@ -13,7 +13,8 @@ import { MedicinesModule } from './modules/medicines/medicines.module';
 import { PharmaciesModule } from './modules/pharmacies/pharmacies.module';
 import { QuestionsModule } from './modules/questions/questions.module';
 import { SharedModule } from './modules/shared/shared.module';
-
+import { AdminModule } from './modules/admin/admin.module';
+import { HomeModule } from './modules/home/home.module';
 import {InputTextModule} from 'primeng-lts/inputtext';
 
 @NgModule({
@@ -25,18 +26,19 @@ import {InputTextModule} from 'primeng-lts/inputtext';
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
-    
+
     AppointementsModule,
     ArticlesModule,
+    AdminModule,
     ClientsModule,
     MedicinesModule,
     PharmaciesModule,
     QuestionsModule,
     SharedModule,
-
-    InputTextModule
+    HomeModule
   ],
-  providers: [],
+  providers: [ 
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

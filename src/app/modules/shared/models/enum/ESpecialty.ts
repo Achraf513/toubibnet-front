@@ -1,5 +1,6 @@
-export enum ESpecialty{
-
+export enum ESpeciality {
+    pneumenologie, psychiatrie, Cardiologue, Dentiste, Dermatologue, Generaliste, Nephrologue,
+    Neurologue, Urologue
 }
 
 /*

@@ -1,14 +1,11 @@
 <!-- Nav bar -->
 <nav class="nav-bar">
-  <h3 class="logo">MEDCLONE.TN</h3>
-  <ul class="nav-group">
-    <li class="nav-item">Home</li>
-    <li class="nav-item">Meds</li>
-    <li class="active nav-item">Doctors</li>
+  <h3 (click)="navigateTo('/')" class="logo">MEDCLONE.TN</h3>
+  <ul class="nav-group" >
+    <li *ngFor="let route of routesLinks" class={{route.styleClasses}} (click)="navigateTo(route.url)">{{route.name}}</li>
   </ul>
 </nav>
-<router-outlet></router-outlet>
 
-<!-- None sense simply to illustrate-->
-
-
+<section class="main-container">
+  <router-outlet></router-outlet>
+</section>
