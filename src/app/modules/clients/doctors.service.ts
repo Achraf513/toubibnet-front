@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Doctor } from '../shared/models/Doctor';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { TokenService } from 'src/app/token.service';
 
 @Injectable({
   providedIn: 'root'

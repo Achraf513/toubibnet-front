@@ -14,7 +14,8 @@ import { QuestionsModule } from './modules/questions/questions.module';
 import { SharedModule } from './modules/shared/shared.module';
 import { AdminModule } from './modules/admin/admin.module';
 import { HomeModule } from './modules/home/home.module';
-import '@angular/compiler'
+
+import { AppointmentModule } from './modules/appointment/appointment.module';
 import { authInterceptorProviders } from './AuthInterceptor.service';
 
 @NgModule({
@@ -34,7 +35,8 @@ import { authInterceptorProviders } from './AuthInterceptor.service';
     PharmaciesModule,
     QuestionsModule,
     SharedModule,
-    HomeModule
+    HomeModule,
+    AppointmentModule
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

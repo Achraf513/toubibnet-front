@@ -7,14 +7,16 @@ import { CheckAppointmentComponent } from './components/check-appointment/check-
 import { AppointmentComponent } from './components/appointment/appointment.component';
 import { CalendarModule } from 'primeng-lts/calendar';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { AppointmentService } from './services/appointment.service';
 import {ButtonModule} from 'primeng-lts/button';
-import {ConfirmationService} from 'primeng-lts/api';
+import {ConfirmationService, MessageService} from 'primeng-lts/api';
 import { MessagesModule } from 'primeng-lts/messages';
 import { ConfirmDialogModule } from 'primeng-lts/confirmdialog';
 import { AvatarModule } from "primeng-lts/avatar";
 import {CardModule} from 'primeng-lts/card';
+import { authInterceptorProviders } from 'src/app/AuthInterceptor.service';
+import { AdminModule } from '../admin/admin.module';
 
 @NgModule({
   declarations: [
@@ -32,10 +34,14 @@ import {CardModule} from 'primeng-lts/card';
     MessagesModule,
     ConfirmDialogModule,
     AvatarModule,
-    CardModule
+    CardModule,
+    AdminModule
   ],
   providers:[
-    AppointmentService,ConfirmationService
+    AppointmentService,ConfirmationService,
+    HttpClient,
+    MessageService
+
   ]
 })
 export class AppointmentModule { }

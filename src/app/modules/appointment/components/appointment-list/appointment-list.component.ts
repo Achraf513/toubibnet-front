@@ -14,7 +14,7 @@ import {ConfirmationService} from 'primeng-lts/api';
 export class AppointmentListComponent implements OnInit {
   doctorId!:number;
   doctor!:Doctor;
-  date=new Date();
+  date!:Date;
   invalidDates: Array<Date>=[];
   availableDates: Date[]=[];
   selectedTime!:Date;
@@ -54,7 +54,8 @@ export class AppointmentListComponent implements OnInit {
     return formatedDate;
   }
   onDateSelected(){
-    this.availableDates=[];
+    if(this.date){
+      this.availableDates=[];
     let day=this.date.getDate();
     let month=this.date.getMonth()+1;
     let year=this.date.getFullYear();
@@ -62,6 +63,7 @@ export class AppointmentListComponent implements OnInit {
       this.availableDates=response;
       this.viewDates=true;
     });
+    }
   }
   onHourSelected(date:Date){
     this.selectedTime=date;
@@ -85,7 +87,7 @@ export class AppointmentListComponent implements OnInit {
         icon: 'pi pi-exclamation-triangle',
         accept: () => {
           console.log("accepted");
-            this.msgs = [{severity:'info', summary:'Succèes', detail:'Rendez-vous ajouté avec succès!'}];
+            this.msgs = [{severity:'info', summary:'Succèes', detail:'Rendez-vous ajouté!'}];
             this.addAppointment();
         },
         reject: () => {
