@@ -1,5 +1,5 @@
 export interface RouteNavigator{
-    url:String,
-    styleClasses:String,
-    name:String
+  url: string,
+  styleClasses: string,
+  name: string
 }

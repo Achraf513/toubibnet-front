@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RoutingService } from 'src/app/routing.service';
 
 @Component({
   selector: 'app-questions',
@@ -10,6 +11,7 @@ export class QuestionsComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    
   }
 
 }

@@ -1,10 +1,10 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { FormsModule } from '@angular/forms';
+import {FormsModule} from '@angular/forms';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
 
 import { ArticlesModule } from './modules/articles/articles.module';
 import { ClientsModule } from './modules/clients/clients.module';
@@ -17,19 +17,18 @@ import { HomeModule } from './modules/home/home.module';
 import {InputTextModule} from 'primeng-lts/inputtext';
 
 import { CalendarModule } from 'primeng/calendar';
-import { AppointementsModule } from './modules/appointements/appointements.module';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
-    
+
     ArticlesModule,
     AdminModule,
     ClientsModule,
@@ -37,11 +36,9 @@ import { AppointementsModule } from './modules/appointements/appointements.modul
     PharmaciesModule,
     QuestionsModule,
     SharedModule,
-    HomeModule,
-    AppointementsModule
+    HomeModule
   ],
-  providers: [     
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
