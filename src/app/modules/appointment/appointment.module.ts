@@ -19,13 +19,15 @@ import { authInterceptorProviders } from 'src/app/AuthInterceptor.service';
 import { AdminModule } from '../admin/admin.module';
 import { AppointmentHistoryComponent } from './components/appointment-history/appointment-history.component';
 import { TableModule } from 'primeng/table';
+import { FuturAppointmentComponent } from './components/futur-appointment/futur-appointment.component';
 
 @NgModule({
   declarations: [
     AppointmentListComponent,
     CheckAppointmentComponent,
     AppointmentComponent,
-    AppointmentHistoryComponent
+    AppointmentHistoryComponent,
+    FuturAppointmentComponent
   ],
   imports: [
     CommonModule,

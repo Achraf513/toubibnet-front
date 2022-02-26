@@ -23,6 +23,9 @@ export class AppointmentService {
   getAppointmentsHistory(id:number):Observable<Appointment[]>{
     return this.http.get<Appointment[]>(`${this.url}/history/${id}`);
   }
+  getFutureAppointments(id:number):Observable<Appointment[]>{
+    return this.http.get<Appointment[]>(`${this.url}/future/${id}`);
+  }
   formatDate(date:Date):string{
     date=new Date(date);
     let hour=date.getHours().toString();

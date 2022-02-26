@@ -4,12 +4,14 @@ import { AppointmentHistoryComponent } from './components/appointment-history/ap
 import { AppointmentListComponent } from './components/appointment-list/appointment-list.component';
 import { AppointmentComponent } from './components/appointment/appointment.component';
 import { CheckAppointmentComponent } from './components/check-appointment/check-appointment.component';
+import { FuturAppointmentComponent } from './components/futur-appointment/futur-appointment.component';
 
 const routes: Routes = [
   {
     path: '', component: AppointmentComponent, children: [
       {path: 'list/:id', component: AppointmentListComponent},
-      {path: 'history/:id', component: AppointmentHistoryComponent}
+      {path: 'history/:id', component: AppointmentHistoryComponent},
+      {path: 'future/:id', component: FuturAppointmentComponent}
     ]
   }
 
