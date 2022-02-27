@@ -15,35 +15,15 @@ export class QuestionsListComponent implements OnInit {
   constructor(private questionService : QuestionService,
     private routingService:RoutingService,
     private tokenService:TokenService,
-    private router: Router) { }
+    private router: Router) { 
+      this.routingService.setCommunActiveRouteTo("Question")
+    }
   questions !: Question[];
   id : number =1;
 
   ngOnInit(): void {
     this.tokenService.redirectIfNotSignedIn();
     this.listOfQuestion();
-    this.routingService.changeRoutes([
-      {
-        name: "Accueil",
-        styleClasses: "nav-item",
-        url: ""
-      },
-      {
-        name: "Médecin",
-        styleClasses: "nav-item ",
-        url: "/client/viewDoctors"
-      },
-      {
-        name: "Question",
-        styleClasses: "nav-item active",
-        url: "/questions"
-      },
-      {
-        name: "Profile",
-        styleClasses: "nav-item",
-        url: "/client/profile"
-      }
-    ]);
   }
 
   listOfQuestion(){

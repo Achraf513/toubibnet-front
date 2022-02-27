@@ -23,28 +23,7 @@ export class ViewDoctorsComponent implements OnInit {
     private routingService: RoutingService,
     private tokenService:TokenService) {
     this.tokenService.redirectIfNotSignedIn();
-    this.routingService.changeRoutes([
-        {
-          name: "Accueil",
-          styleClasses: "nav-item",
-          url: ""
-        },
-        {
-          name: "Médecin",
-          styleClasses: "nav-item active",
-          url: "/client/viewDoctors"
-        },
-        {
-          name: "Question",
-          styleClasses: "nav-item",
-          url: "/questions"
-        },
-        {
-          name: "Profile",
-          styleClasses: "nav-item",
-          url: "/client/profile"
-        }
-        ]);
+    this.routingService.setCommunActiveRouteTo("Médecin")
   }
   onScroll(event:any){
     console.log(event);
@@ -60,6 +39,15 @@ export class ViewDoctorsComponent implements OnInit {
 
     this.governorates = this.governorates.concat(Object.entries(EGovernorate).map(e => e[1].toString()));
     this.selectedGovernorate = this.governorates[0];
+    
+    //animating
+    setTimeout(()=>{
+      document.getElementById("visual1")!.style.left = "-35%"
+      document.getElementById("visual2")!.style.right = "-35%"
+      document.getElementById("filterBar")!.style.top = "155px"
+      document.getElementById("title")!.style.marginLeft = "0"
+      document.getElementById("content")!.style.marginTop = "0"
+    },100);
   }
   private scrollHandler() {
     if(document.getElementById("filterBar")==undefined){
