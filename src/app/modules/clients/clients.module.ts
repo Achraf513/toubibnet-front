@@ -3,6 +3,7 @@ import { UserLoginComponent } from './user-login/user-login.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { DropdownModule } from 'primeng-lts/dropdown';
 import { InputTextModule } from 'primeng-lts/inputtext';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
@@ -11,7 +12,6 @@ import { DoctorDetailsComponent } from './doctor-details/doctor-details.componen
 import { ClientsRoutingModule } from './clients-routing.module';
 import { ButtonModule } from 'primeng-lts/button';
 import { SignUpUserComponent } from './sign-up-user/sign-up-user.component';
-import { UpdateAccountComponent } from './update-account/update-account.component';
 import { CheckAccountComponent } from './check-account/check-account.component';
 import { SignUpDoctorComponent } from './sign-up-doctor/sign-up-doctor.component';
 import { ToastModule } from 'primeng-lts/toast';
@@ -22,7 +22,6 @@ import {MessageService} from 'primeng-lts/api';
     ViewDoctorsComponent,
     DoctorDetailsComponent,
     SignUpUserComponent,
-    UpdateAccountComponent,
     CheckAccountComponent,
     SignUpDoctorComponent,
     UserLoginComponent,
@@ -32,6 +31,7 @@ import {MessageService} from 'primeng-lts/api';
     CommonModule,
     ClientsRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     DropdownModule,
     InputTextModule,
     ButtonModule,

@@ -46,7 +46,12 @@ export class TokenService {
   public clearToken(){
     localStorage.removeItem("token");
   }
-
+  public signOut(){
+    this.clearDoctor();
+    this.clearUser();
+    this.clearToken();
+    this.router.navigate(["/client/login"]);
+  }
   public redirectIfNotSignedIn():void{
     if(this.getToken()==""){
       this.router.navigate(["/client/login"]);

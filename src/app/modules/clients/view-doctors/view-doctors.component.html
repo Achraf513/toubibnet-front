@@ -1,5 +1,5 @@
 <section class="container2">
-    <h1>Trouvez un médecin en Tunisie</h1>
+    <h1 id="title">Trouvez un médecin en Tunisie</h1>
     <aside id="filterBar" class="filter-aside">
         <h5>Filtrer par</h5>
         <hr>
@@ -14,17 +14,19 @@
         <button (click)="resetFilter()" class="btn-primary thirdColor fullWidth"><i class="pi pi-refresh pr-10"></i> <span>Restaurer</span></button>
     </aside>
     <section class="asideContent-container">
-        <div *ngIf="displayedDoctors">
-            <app-doctor-details *ngFor="let doctor of displayedDoctors" [doctor]="doctor"></app-doctor-details>
-        </div>
-        <div *ngIf="displayedDoctors.length==0">
-            <section class="content-subSection">
-                <h6>Aucun praticien ne correspond à votre recherche</h6>
-            </section>
+        <div id="content" >
+            <div *ngIf="displayedDoctors">
+                <app-doctor-details *ngFor="let doctor of displayedDoctors" [doctor]="doctor"></app-doctor-details>
+            </div>
+            <div *ngIf="displayedDoctors.length==0">
+                <section class="content-subSection">
+                    <h6>Aucun praticien ne correspond à votre recherche</h6>
+                </section>
+            </div>
         </div>
     </section>
 </section>
-<svg class="svgBackground" id="visual" viewBox="0 0 960 540" width="960" height="540" xmlns="http://www.w3.org/2000/svg"
+<svg class="svgBackground" id="visual1" viewBox="0 0 960 540" width="960" height="540" xmlns="http://www.w3.org/2000/svg"
     xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
     <g transform="translate(483.76379492739204 202.68407763480155)">
         <path
@@ -32,7 +34,7 @@
             fill="#EC5C8C"></path>
     </g>
 </svg>
-<svg class="svgBackground2" id="visual" viewBox="0 0 960 540" width="960" height="540" xmlns="http://www.w3.org/2000/svg"
+<svg class="svgBackground2" id="visual2" viewBox="0 0 960 540" width="960" height="540" xmlns="http://www.w3.org/2000/svg"
     xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
     <g transform="translate(483.76379492739204 202.68407763480155)">
         <path
