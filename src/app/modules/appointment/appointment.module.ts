@@ -17,12 +17,17 @@ import { AvatarModule } from "primeng-lts/avatar";
 import {CardModule} from 'primeng-lts/card';
 import { authInterceptorProviders } from 'src/app/AuthInterceptor.service';
 import { AdminModule } from '../admin/admin.module';
+import { AppointmentHistoryComponent } from './components/appointment-history/appointment-history.component';
+import { TableModule } from 'primeng/table';
+import { FuturAppointmentComponent } from './components/futur-appointment/futur-appointment.component';
 
 @NgModule({
   declarations: [
     AppointmentListComponent,
     CheckAppointmentComponent,
-    AppointmentComponent
+    AppointmentComponent,
+    AppointmentHistoryComponent,
+    FuturAppointmentComponent
   ],
   imports: [
     CommonModule,
@@ -35,12 +40,14 @@ import { AdminModule } from '../admin/admin.module';
     ConfirmDialogModule,
     AvatarModule,
     CardModule,
-    AdminModule
+    AdminModule,
+    TableModule
   ],
   providers:[
-    AppointmentService,ConfirmationService,
+    AppointmentService,
+    ConfirmationService,
     HttpClient,
-    MessageService
+    MessageService,authInterceptorProviders
 
   ]
 })
