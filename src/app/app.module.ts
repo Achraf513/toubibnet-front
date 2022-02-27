@@ -12,7 +12,7 @@ import { PharmaciesModule } from './modules/pharmacies/pharmacies.module';
 import { AdminModule } from './modules/admin/admin.module';
 import { HomeModule } from './modules/home/home.module';
 import '@angular/compiler'
-//import { AppointementsModule } from './modules/appointment/appointment.module'
+import { AppointmentModule } from './modules/appointment/appointment.module'
 import { ArticlesModule } from './modules/articles/articles.module';
 import { ClientsModule } from './modules/clients/clients.module';
 import { MedicinesModule } from './modules/medicines/medicines.module';
@@ -29,7 +29,7 @@ import { InputTextModule } from 'primeng-lts/inputtext';
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
-    //AppointementsModule,
+    AppointmentModule,
     ArticlesModule,
     MedicinesModule,
     QuestionsModule,
