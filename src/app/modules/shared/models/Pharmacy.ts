@@ -4,13 +4,15 @@ import {EStatus} from "./enum/EStatus";
 
 
 export class Pharmacy{
-  constructor(id?:number,
-              name?:string,
-              address?:string,
-              phone?:string,
-              status?:EStatus,
-              governorate?:EGovernorate
-              ) {
-  }
+  // @ts-ignore
+  id:number;
+  // @ts-ignore
+  name:string;
+  // @ts-ignore
+  address:string;// @ts-ignore
+
+  phone:string;// @ts-ignore
+  status:EStatus;// @ts-ignore
+  governorate:EGovernorate;
 
 }

@@ -14,7 +14,6 @@ import { QuestionsModule } from './modules/questions/questions.module';
 import { SharedModule } from './modules/shared/shared.module';
 
 import {InputTextModule} from 'primeng-lts/inputtext';
-import {HttpClientModule} from "@angular/common/http";
 @NgModule({
   declarations: [
     AppComponent
@@ -31,7 +30,7 @@ import {HttpClientModule} from "@angular/common/http";
     MedicinesModule,
     QuestionsModule,
     SharedModule,
-    HttpClientModule,
+
 
     InputTextModule
   ],
