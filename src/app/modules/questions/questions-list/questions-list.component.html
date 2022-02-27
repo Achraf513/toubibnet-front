@@ -19,7 +19,7 @@
 
       <section>
         <h5 class="title">{{question.title | titlecase}}</h5>
-        <h6 class="date">{{question.date | date: 'dd-mm-yyyy'}}</h6><br/>
+        <h6 class="date">{{question.date | date: 'dd-MM-yyyy'}}</h6><br/>
         <h6 class="username">{{question.user.firstName | titlecase}}  {{question.user.lastName | titlecase}}</h6>
       </section>
       <br/>
@@ -39,3 +39,4 @@
     </section>
   </section>
 </section>
+<p-paginator [rows]="2" [totalRecords]="120" [rowsPerPageOptions]="[10,20,30]"></p-paginator>

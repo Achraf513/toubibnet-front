@@ -2,8 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {Question} from "../../shared/models/Question";
 import {QuestionService} from "../services/question.service";
 import {Router} from "@angular/router";
-import { RoutingService } from 'src/app/routing.service';
-import { TokenService } from 'src/app/token.service';
+import {RoutingService} from 'src/app/routing.service';
+import {TokenService} from 'src/app/token.service';
 
 @Component({
   selector: 'app-questions-list',
@@ -12,6 +12,7 @@ import { TokenService } from 'src/app/token.service';
 })
 export class QuestionsListComponent implements OnInit {
 
+
   constructor(private questionService : QuestionService,
     private routingService:RoutingService,
     private tokenService:TokenService,
@@ -19,8 +20,8 @@ export class QuestionsListComponent implements OnInit {
       this.routingService.setCommunActiveRouteTo("Question")
     }
   questions !: Question[];
-  id : number =1;
   contentSearch!: String;
+  id = this.tokenService.getUser()!.id;
 
   ngOnInit(): void {
     this.tokenService.redirectIfNotSignedIn();

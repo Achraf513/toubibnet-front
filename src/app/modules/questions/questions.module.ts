@@ -13,6 +13,7 @@ import {DropdownModule} from "primeng-lts/dropdown";
 import {InputTextModule} from "primeng-lts/inputtext";
 import {ButtonModule} from "primeng-lts/button";
 import {ToastModule} from "primeng-lts/toast";
+import {PaginatorModule} from "primeng/paginator";
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import {ToastModule} from "primeng-lts/toast";
     InputTextModule,
     ButtonModule,
     ToastModule,
+    PaginatorModule
   ],
-  providers:[]
+  providers: []
 })
 export class QuestionsModule { }
