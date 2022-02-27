@@ -9,6 +9,7 @@ import {AddQuestionComponent} from './add-question/add-question.component';
 import {FormsModule} from "@angular/forms";
 import {UpdateQuestionComponent} from './update-question/update-question.component';
 import {QuestionsDetailsComponent} from './questions-details/questions-details.component';
+import {PaginatorModule} from "primeng/paginator";
 
 
 @NgModule({
@@ -23,8 +24,9 @@ import {QuestionsDetailsComponent} from './questions-details/questions-details.c
     CommonModule,
     QuestionsRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    PaginatorModule
   ],
-  providers:[]
+  providers: []
 })
 export class QuestionsModule { }

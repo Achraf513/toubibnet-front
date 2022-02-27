@@ -49,8 +49,9 @@ span {
 }
 
 .username {
-  width: max-content;
-  margin-left: 90%;
+  width: auto;
+  margin-left: 80%;
+  text-align: right;
 }
 
 .question-content {
