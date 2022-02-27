@@ -7,7 +7,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class DoctorsService {
-  doctorsUrl: string = "http://localhost:8080/doctor/all"
+  doctorsUrl: string = "http://localhost:8082/doctor/all"
 
   headers: HttpHeaders = new HttpHeaders()
 

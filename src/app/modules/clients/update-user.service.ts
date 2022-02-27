@@ -9,7 +9,7 @@ import { User } from '../shared/models/User';
 })
 export class UpdateUserService {
 
-  apiURL: string = 'http://localhost:8080/';
+  apiURL: string = 'http://localhost:8082/';
   constructor(private http: HttpClient) {}
   updateUser(user: User): Observable<User> {
     return this.http.put<User>(

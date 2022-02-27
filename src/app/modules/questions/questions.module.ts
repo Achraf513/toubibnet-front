@@ -6,9 +6,13 @@ import {QuestionsComponent} from './questions.component';
 import {QuestionsListComponent} from './questions-list/questions-list.component';
 import {HttpClientModule} from "@angular/common/http";
 import {AddQuestionComponent} from './add-question/add-question.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {UpdateQuestionComponent} from './update-question/update-question.component';
 import {QuestionsDetailsComponent} from './questions-details/questions-details.component';
+import {DropdownModule} from "primeng-lts/dropdown";
+import {InputTextModule} from "primeng-lts/inputtext";
+import {ButtonModule} from "primeng-lts/button";
+import {ToastModule} from "primeng-lts/toast";
 
 
 @NgModule({
@@ -23,7 +27,12 @@ import {QuestionsDetailsComponent} from './questions-details/questions-details.c
     CommonModule,
     QuestionsRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    DropdownModule,
+    InputTextModule,
+    ButtonModule,
+    ToastModule,
   ],
   providers:[]
 })

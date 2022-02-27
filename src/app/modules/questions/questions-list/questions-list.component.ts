@@ -15,11 +15,12 @@ export class QuestionsListComponent implements OnInit {
   constructor(private questionService : QuestionService,
     private routingService:RoutingService,
     private tokenService:TokenService,
-    private router: Router) { 
+    private router: Router) {
       this.routingService.setCommunActiveRouteTo("Question")
     }
   questions !: Question[];
   id : number =1;
+  contentSearch!: String;
 
   ngOnInit(): void {
     this.tokenService.redirectIfNotSignedIn();
@@ -53,5 +54,12 @@ export class QuestionsListComponent implements OnInit {
 
   checkDetails(id: number) {
     this.router.navigate(['questions/check-details', id])
+  }
+
+  filterSearch() {
+    this.questionService.getByWord(this.contentSearch).subscribe(data=>{
+      this.questions=data;
+      console.log(data)
+    });
   }
 }

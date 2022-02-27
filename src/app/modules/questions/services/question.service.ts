@@ -8,7 +8,7 @@ import {Observable} from "rxjs";
 })
 export class QuestionService {
 
-  private questionUrl = 'http://localhost:8080/question';
+  private questionUrl = 'http://localhost:8082/question';
   constructor(private httpClient: HttpClient) { }
 
   public addQuestion(question: Question,id:number): Observable<Question>{
@@ -25,6 +25,9 @@ export class QuestionService {
   }
   public deleteQuestion(id: number): Observable<boolean>{
     return this.httpClient.delete<boolean>(this.questionUrl+'/'+ id);
+  }
+  public getByWord(mot:String):Observable<Question[]>{
+    return this.httpClient.get<Question[]>(this.questionUrl+'/search/'+mot);
   }
 
 }

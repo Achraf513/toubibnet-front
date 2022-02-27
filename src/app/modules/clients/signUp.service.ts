@@ -7,7 +7,7 @@ import { User } from '../shared/models/User';
   providedIn: 'root'
 })
 export class SignUpService {
-  apiURL: string = "http://localhost:8080/"
+  apiURL: string = "http://localhost:8082/"
 
 constructor(private http: HttpClient) { }
   signUpUser(user: User): Observable<void> {
