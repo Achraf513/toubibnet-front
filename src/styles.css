@@ -12,6 +12,7 @@ body{
     background-color: rgb(248, 248, 248);
     padding: 0;
     margin: 0;
+    overflow-x: hidden;
 }
 p{
     font-size: 15px;
@@ -56,6 +57,7 @@ h6{
 
 .nav-bar{
     position: fixed;
+    z-index: 3;
     width: 100%;
     padding: 10px;
     background-color: rgb(248, 252, 255);
@@ -74,18 +76,29 @@ h6{
     font-size: 18px;
     color: rgb(95, 95, 95);
     cursor: pointer;
+    transition: 0.5s;
+}
+.nav-item:hover{
+    color: #EC5C8C !important;
+    transform: scale(1.05,1.05);
 }
 .active{
-    color: rgb(20,20,20);
+    color: rgb(0, 0, 0) !important;
+    font-weight: 600 !important;
 }
 .logo{
     float: left;
     color: rgb(20,20,20);
     font-size: 18px;
+    font-weight: 600 !important;
     padding: 0;
     cursor: pointer;
+    transition: 0.5s;
 }
-
+.logo:hover{
+    color: #EC5C8C;
+    transform: scale(1.05,1.05);
+}
 /*------------------------------------------------------*/
 /*------------ containers commun classes ---------------*/
 /*------------------------------------------------------*/

@@ -1,0 +1,39 @@
+<div class="fullContent-container">
+    <div class="content-subSection center">
+        <h5>Modifier vos informations personnelles ?</h5>
+        <div class="col-1-2 leftcol">
+            <input type="text" name="firstName" pInputText placeholder="Entrer votre prenom" [(ngModel)]="user.firstName">
+            <input type="text" name="lastName" pInputText placeholder="Entrer votre nom" [(ngModel)]="user.lastName">
+            <p-dropdown *ngIf="isDoctor" [style]="{'width':'100%', 'marginBottom':'5px', 'height': '40px'}" [options]="specialities"
+                [(ngModel)]="selectedSpecialty"></p-dropdown>
+
+        </div>
+        <div class="col-1-2 rightcol">
+            <input type="text" name="phoneNumber" pInputText placeholder="Numéro de téléphone" [(ngModel)]="user.phoneNumber">
+            <input type="email" name="email" pInputText placeholder="Entrer votre email" [(ngModel)]="user.email">
+            <p-dropdown *ngIf="isDoctor" [style]="{'width':'100%', 'marginBottom':'5px', 'height': '40px'}" [options]="governorates"
+                [(ngModel)]="selectedGovernorate"></p-dropdown>
+        </div>
+        <div class="col-1-1">
+            <input type="address" pInputText placeholder="address" [(ngModel)]="user.address">
+            <textarea *ngIf="isDoctor" type="text" pInputText placeholder="Description" [(ngModel)]="user.description"></textarea>
+            <input type="password" pInputText placeholder="Mot de passe">
+            <input type="password" pInputText placeholder="Retapez le mot de passe">
+        <button pButton type="button" label="Soumettre"></button>
+    </div>
+    </div>
+</div>
+<div class="custom-shape-divider-top-1645733151">
+    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path
+            d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+            class="shape-fill"></path>
+    </svg>
+</div>
+<div class="custom-shape-divider-bottom-1645733380">
+    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path
+            d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+            class="shape-fill"></path>
+    </svg>
+</div>

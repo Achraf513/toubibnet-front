@@ -11,7 +11,7 @@ export enum EGovernorate{
     Kebili = "Kébili",
     LeKef = "Le Kef",
     Mahdia = "Mahdia",
-    LaManouba = "LaManouba",
+    LaManouba = "La Manouba",
     Medenine = "Médenine",
     Monastir = "Monastir",
     Nabeul = "Nabeul",

@@ -1,9 +1,9 @@
-import { ESpecialty } from "./enum/ESpecialty";
+import {User} from "./User";
 
 export interface Question{
     id:number,
-    userId:number,
-    specialty:ESpecialty,
-    description:string,
+    user:User,
+    title:string,
+    content:string,
     date:Date
 }
