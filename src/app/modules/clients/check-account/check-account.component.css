@@ -89,6 +89,7 @@
   width: 100%;
 }
 #profileContainer .fullContent-container-doctor img {
+  margin-top: -60px;
   margin-left: -40px;
   width: 110%;
 }
@@ -127,9 +128,6 @@
 #profileContainer .btn-primary i {
   padding-right: 10px;
 }
-#profileContainer .fixed {
-  position: fixed;
-}
 #profileContainer .signOutBtn{
   background-color: rgb(209, 209, 209);
   margin-left: 20px;
@@ -141,6 +139,24 @@
 #profileContainer .signOutBtn:focus {
   background-color: rgb(255, 172, 139);
   box-shadow: 0 0 2px 2px rgb(233, 147, 113);
+}
+#profileContainer .btn-history{
+  float: none;
+  display: block;
+  width: 90%;
+  height: 40px;
+  margin-top: 15px;
+  background-color: #ec5c8c;
+}
+#profileContainer .btn-history:hover{
+  background-color: #e490ac;
+}
+#profileContainer .btn-future{
+  float: none;
+  display: block;
+  width: 90%;
+  height: 40px;
+  margin-top: 5px;
 }
 /*----------------------------------*/
 #updateContainer {
@@ -260,4 +276,7 @@
 }
 .custom-shape-divider-bottom-1645733380 .shape-fill {
   fill: #ec5c8c;
+}
+.fixed {
+  position: fixed;
 }

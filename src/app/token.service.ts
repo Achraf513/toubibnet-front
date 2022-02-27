@@ -26,6 +26,14 @@ export class TokenService {
   public getToken(): string {
     return localStorage.getItem("token") ?? "";
   }
+  public isDoctor():boolean{
+    try{
+      JSON.parse(localStorage.getItem("user")!).governorate;
+      return true
+    }catch(e){
+      return false;
+    }
+  }
   public setDoctor(doctor:Doctor): void{
     localStorage.setItem("doctor", JSON.stringify(doctor));
   }

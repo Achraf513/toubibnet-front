@@ -7,6 +7,7 @@ import { Doctor } from '../../shared/models/Doctor';
 import { EGovernorate } from '../../shared/models/enum/EGovernorate';
 import { ESpeciality } from '../../shared/models/enum/ESpecialty';
 import { User } from '../../shared/models/User';
+import { UpdateUserService } from '../update-user.service';
 
 @Component({
   selector: 'app-check-account',
@@ -14,21 +15,9 @@ import { User } from '../../shared/models/User';
   styleUrls: ['./check-account.component.css'],
 })
 export class CheckAccountComponent implements OnInit {
-  doctor: Doctor = {
-    id: 0,
-    firstName: 'firstname',
-    lastName: 'lastName',
-    phoneNumber: '50504040',
-    email: 'email@EmailValidator.com',
-    password: 'password hash',
-    roles: [],
-    speciality: ESpeciality.pneumenologie,
-    governorate: EGovernorate.Ariana,
-    description: 'description',
-    address: 'address',
-  };
-  user: User | null;
-  isDoctor: boolean = true;
+  doctor: Doctor | null = null;
+  user: User | null = null;
+  isDoctor: boolean;
   updateOn: boolean;
 
   specialities: Array<String> = [];
@@ -36,25 +25,41 @@ export class CheckAccountComponent implements OnInit {
   selectedSpecialty: String = '';
   selectedGovernorate: String = '';
 
-
   userFormGroup:FormGroup;
 
   constructor(
     private tokenService: TokenService,
     private router: Router,
+    private updateUserService:UpdateUserService,
     private routingService: RoutingService
   ) {
+    this.isDoctor = this.tokenService.isDoctor();
+    if(this.isDoctor){
+      this.doctor = JSON.parse(localStorage.getItem("user")!);
+      this.userFormGroup = new FormGroup({
+        'name': new FormControl(this.doctor?.firstName, [Validators.required]),
+        'familyName': new FormControl(this.doctor?.lastName, [Validators.required]),
+        "phoneNumber": new FormControl(this.doctor?.phoneNumber, [Validators.required, Validators.pattern("[0-9]+"), Validators.minLength(8), Validators.maxLength(8)]),
+        "password": new FormControl("",[Validators.required]),
+        "retypedPassword": new FormControl("",[Validators.required]),
+        "governorate": new FormControl(this.doctor?.governorate,[Validators.required]),
+        "speciality": new FormControl(this.doctor?.speciality,[Validators.required]),
+        "address": new FormControl(this.doctor?.address,[Validators.required]),
+        "description": new FormControl(this.doctor?.description,[Validators.required]),
+      });
+    }else{
+      this.user = this.tokenService.getUser();
+      this.userFormGroup = new FormGroup({
+        'name': new FormControl(this.user?.firstName, [Validators.required]),
+        'familyName': new FormControl(this.user?.lastName, [Validators.required]),
+        "phoneNumber": new FormControl(this.user?.phoneNumber, [Validators.required, Validators.pattern("[0-9]+"), Validators.minLength(8), Validators.maxLength(8)]),
+        "password": new FormControl("",[Validators.required]),
+        "retypedPassword": new FormControl("",[Validators.required]),
+      });
+    }
     this.updateOn = false;
-    this.user = this.tokenService.getUser();
     this.tokenService.redirectIfNotSignedIn();
     this.routingService.setCommunActiveRouteTo('Profile');
-    this.userFormGroup = new FormGroup({
-      'name': new FormControl(this.user?.firstName, [Validators.required]),
-      'familyName': new FormControl(this.user?.lastName, [Validators.required]),
-      "phoneNumber": new FormControl(this.user?.phoneNumber, [Validators.required, Validators.pattern("[0-9]+"), Validators.minLength(8), Validators.maxLength(8)]),
-      "password": new FormControl("",[Validators.required]),
-      "retypedPassword": new FormControl("",[Validators.required]),
-    });
   }
 
   goToUpdate() {
@@ -70,6 +75,12 @@ export class CheckAccountComponent implements OnInit {
   }
   disconnect(){
     this.tokenService.signOut();
+  }
+  goToHistory(){
+    this.router.navigate(["/appointment/history/"+this.doctor!.id])
+  }
+  goToFuture(){
+    this.router.navigate(["/appointment/future/"+this.doctor!.id])
   }
   goToProfile(){
     document.getElementById('updateContainer')!.style.marginTop = '-100%';
@@ -99,6 +110,32 @@ export class CheckAccountComponent implements OnInit {
     this.selectedGovernorate = this.governorates[0];
   }
   onSubmit(){
-
+    this.userFormGroup.markAsTouched();
+    if(this.userFormGroup.valid && this.userFormGroup.controls["password"].value==this.userFormGroup.controls["retypedPassword"].value){
+      if(!this.isDoctor){
+        this.copyNewUser();
+        this.updateUserService.updateUser(this.user!).subscribe((user)=>console.log("user updated"+user));
+      }else{
+        this.copyNewDoctor();
+        this.updateUserService.updateDoctor(this.doctor!).subscribe((doctor)=>console.log("user updated"+doctor));
+      }
+      this.goToProfile();
+    }
+  }
+  copyNewUser(){
+    this.user!.firstName = this.userFormGroup.controls["name"].value;
+    this.user!.lastName = this.userFormGroup.controls["familyName"].value;
+    this.user!.phoneNumber = this.userFormGroup.controls["phoneNumber"].value;
+    this.user!.password = this.userFormGroup.controls["password"].value;
+  }
+  copyNewDoctor(){
+    this.doctor!.firstName = this.userFormGroup.controls["name"].value;
+    this.doctor!.lastName = this.userFormGroup.controls["familyName"].value;
+    this.doctor!.phoneNumber = this.userFormGroup.controls["phoneNumber"].value;
+    this.doctor!.password = this.userFormGroup.controls["password"].value;
+    this.doctor!.address = this.userFormGroup.controls["address"].value;
+    this.doctor!.speciality = this.userFormGroup.controls["speciality"].value;
+    this.doctor!.description = this.userFormGroup.controls["description"].value;
+    this.doctor!.governorate = this.userFormGroup.controls["governorate"].value;
   }
 }

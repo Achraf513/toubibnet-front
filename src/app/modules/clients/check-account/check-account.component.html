@@ -3,7 +3,7 @@
         <div class="content-subSection center">
             <div class="editBtnContainer">
                 <button (click)="disconnect()" class="signOutBtn btn-primary" type="button"><i
-                    class="pi pi-user-edit"></i><span>Déconnecter</span></button>
+                    class="pi pi-sign-out"></i><span>Déconnecter</span></button>
                 <button (click)="goToUpdate()" class="editBtn btn-primary" type="button"><i
                         class="pi pi-user-edit"></i><span>Modifier</span></button>
             </div>
@@ -22,12 +22,16 @@
         <div class="content-subSection center">
             <div class="editBtnContainer">
                 <button (click)="disconnect()" class="signOutBtn btn-primary" type="button"><i
-                    class="pi pi-user-edit"></i><span>Déconnecter</span></button>
+                    class="pi pi-sign-out"></i><span>Déconnecter</span></button>
                 <button (click)="goToUpdate()" class="editBtn btn-primary" type="button"><i
                         class="pi pi-user-edit"></i><span>Modifier</span></button>
             </div>
             <div class="col-1-2 leftcol">
                 <img src="../../../../assets/images/profile.jpg" alt="">
+                <button (click)="goToHistory()" class="btn-history btn-primary" type="button"><i
+                    class="pi pi-calendar"></i><span>Historique des rendez-vous</span></button>
+                <button (click)="goToFuture()" class="btn-future btn-primary" type="button"><i
+                        class="pi pi-users"></i><span>consulter les rendez-vous</span></button>
             </div>
             <div class="col-1-2 rightcol doctor">
                 <h6><span>Nom : </span>{{doctor!.firstName}}</h6>
@@ -72,30 +76,30 @@
     </div>
     <div class="fullContent-container" *ngIf="isDoctor">
         <div class="content-subSection center" *ngIf="isDoctor">
-            <form>
+            <form [formGroup]="userFormGroup">
                 <button class="btn-close" (click)="goToProfile()"><i class="pi pi-times"></i></button>
                 <h5>Modifier vos informations personnelles ?</h5>
                 <div class="col-1-2 leftcol">
                     <input type="text" name="firstName" pInputText placeholder="Entrer votre prenom"
-                        [(ngModel)]="doctor.firstName">
+                    formControlName="name">
                     <p-dropdown [style]="{'width':'100%', 'marginBottom':'5px', 'height': '40px'}"
-                        [options]="specialities" [(ngModel)]="selectedSpecialty"></p-dropdown>
+                        [options]="specialities" formControlName="speciality"></p-dropdown>
 
                 </div>
                 <div class="col-1-2 rightcol">
                     <input type="text" name="lastName" pInputText placeholder="Entrer votre nom"
-                        [(ngModel)]="doctor.lastName">
+                    formControlName="familyName">
                     <p-dropdown [style]="{'width':'100%', 'marginBottom':'5px', 'height': '40px'}"
-                        [options]="governorates" [(ngModel)]="selectedGovernorate"></p-dropdown>
+                        [options]="governorates" formControlName="governorate"></p-dropdown>
                 </div>
                 <div class="col-1-1">
                     <input type="text" name="phoneNumber" pInputText placeholder="Numéro de téléphone"
-                        [(ngModel)]="doctor.phoneNumber">
+                    formControlName="phoneNumber">
                     <textarea type="text" pInputText placeholder="Description"
-                        [(ngModel)]="doctor.description"></textarea>
-                    <input type="password" pInputText placeholder="Mot de passe">
-                    <input type="password" pInputText placeholder="Retapez le mot de passe">
-                    <button pButton type="button" label="Soumettre"></button>
+                    formControlName="description"></textarea>
+                    <input type="password" formControlName="password" pInputText placeholder="Mot de passe">
+                    <input type="password" formControlName="retypedPassword" pInputText placeholder="Retapez le mot de passe">
+                    <button pButton type="button" (click)="onSubmit()" label="Soumettre"></button>
                 </div>
             </form>
         </div>

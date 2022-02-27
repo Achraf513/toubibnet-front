@@ -3,6 +3,7 @@ import { Doctor } from '../../shared/models/Doctor';
 import {ESpeciality} from '../../shared/models/enum/ESpecialty';
 import{ EGovernorate}from '../../shared/models/enum/EGovernorate';
 import { SignUpDoctorService } from '../sign-up-doctor.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-up-doctor',
@@ -26,7 +27,7 @@ export class SignUpDoctorComponent implements OnInit {
       address:"",
     }
 
-  constructor(private signUpDoctorService:SignUpDoctorService) {
+  constructor(private signUpDoctorService:SignUpDoctorService,private router:Router) {
     for (let log in ESpeciality) {
       if (isNaN(Number(log))) {
          this.listSpecialities.push(log);
@@ -45,7 +46,8 @@ export class SignUpDoctorComponent implements OnInit {
   signUp(){
     console.log(this.doctorInfo);
     this.signUpDoctorService.signUp(this.doctorInfo).subscribe(()=>{
-      alert("SUCCESS")
+      this.router.navigate(["client/login"])
+      
     },
     (error) =>console.log(error)
     );
