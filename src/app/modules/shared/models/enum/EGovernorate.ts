@@ -1,5 +1,5 @@
 export enum EGovernorate{
-    Ariana = "Ariana",
+  Ariana = "Ariana",
     Beja = "Béja",
     BenArous = "Ben Arous",
     Bizerte = "Bizerte",

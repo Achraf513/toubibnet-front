@@ -24,7 +24,7 @@ export class RoutingService {
     {
       name: "Pharmacie",
       styleClasses: "nav-item",
-      url: "/Pharmacie"
+      url: "/pharmacy"
     },
     {
       name: "Question",

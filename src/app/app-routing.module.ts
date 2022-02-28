@@ -3,6 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeScreenComponent } from './modules/home/home-screen/home-screen.component';
 
 const routes: Routes = [
+
+
+
   {
     path: '',
     children: [
@@ -11,10 +14,12 @@ const routes: Routes = [
       { path: 'client', loadChildren: () => import(`./modules/clients/clients.module`).then(m => m.ClientsModule) },
       { path: 'questions', loadChildren: () => import(`./modules/questions/questions.module`).then(m => m.QuestionsModule) },
       { path: 'appointment', loadChildren: () => import('./modules/appointment/appointment.module').then((mod) => mod.AppointmentModule) },
-      { path: 'article', loadChildren: () => import('./modules/articles/articles.module').then((mod) => mod.ArticlesModule) }
+      { path: 'article', loadChildren: () => import('./modules/articles/articles.module').then((mod) => mod.ArticlesModule) },
+      { path: "pharmacy", loadChildren: () => import("../app/modules/pharmacies/pharmacies.module").then(mod => mod.PharmaciesModule) }
     ],
   },
   { path: '**', redirectTo: 'home', pathMatch: 'full' }
+
 
 ];
 

@@ -1,0 +1,63 @@
+<section class="main-container">
+  <form novalidate #form="ngForm">
+    <aside class="filter-aside">
+      <h3>Filter with</h3>
+      <div class="form-group">
+        <strong>Status</strong>
+
+        <select
+          class="form-control"
+          name="status"
+          [(ngModel)]="status"
+          (change)="governorate = ''"
+        >
+          <!-- Remove this if you want a continuous filter -->
+          <option></option>
+          <option value="Day">Day</option>
+          <option value="Night">Night</option>
+        </select>
+      </div>
+      <br />
+      <div class="form-group">
+        <strong>Governorate</strong>
+        <select
+          class="form-control"
+          name="governorate"
+          [(ngModel)]="governorate"
+        >
+          <option></option>
+          <option
+            *ngFor="let governorate of governorates"
+            [value]="governorate"
+          >
+            {{ governorate }}
+          </option>
+        </select>
+      </div>
+
+      <br /><br />
+    </aside>
+    <section class="asideContent-container">
+      <h3>List of pharmacies</h3>
+      <table>
+        <thead>
+          <th>Name</th>
+          <th>Status</th>
+          <th>Governorate</th>
+          <th>Address</th>
+          <th>Phone Number</th>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let pharmacy of pharmacies | tableFilter: form.value">
+            <td>{{ pharmacy.name }}</td>
+            <td>{{ pharmacy.status }}</td>
+            <td><i class="pi pi-map-marker"></i>{{ pharmacy.governorate }}</td>
+            <td><i class="pi pi-map-marker"></i>{{ pharmacy.address }}</td>
+            <td><i class="pi pi-phone"></i>{{ pharmacy.phone }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </form>
+</section>
