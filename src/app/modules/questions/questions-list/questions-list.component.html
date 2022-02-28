@@ -37,6 +37,11 @@
             <h6>Aucune réponse ne correspond à votre recherche</h6>
         </div>
     </section>
+    <section class="content-subSection" *ngIf="questions.length==0">
+        <div>
+            <h6>Aucune réponse ne correspond à votre recherche</h6>
+        </div>
+    </section>
   </section>
 </section>
-<p-paginator [rows]="2" [totalRecords]="120" [rowsPerPageOptions]="[10,20,30]"></p-paginator>
+<p-paginator  [rows]="2" [totalRecords]="lengthOfList"  (onPageChange)="paginate($event)"></p-paginator>
