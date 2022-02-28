@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { User } from '../../shared/models/User';
 import { SignUpService } from '../signUp.service';
 
@@ -17,13 +18,14 @@ export class SignUpUserComponent implements OnInit {
     password:"",
     roles:[],
   }
-  constructor( private signUpService : SignUpService) { }
+  constructor( private signUpService : SignUpService,
+    private router:Router) { }
 
   ngOnInit() {
   }
   signUp(){
     this.signUpService.signUpUser(this.userInfo).subscribe(()=>{
-      alert("SUCCESS")
+      this.router.navigate(["client/login"])
     },
     (error) =>console.log(error)
     );

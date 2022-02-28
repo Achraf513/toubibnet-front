@@ -26,6 +26,14 @@ export class TokenService {
   public getToken(): string {
     return localStorage.getItem("token") ?? "";
   }
+  public isDoctor():boolean{
+    try{
+      JSON.parse(localStorage.getItem("user")!).governorate;
+      return true
+    }catch(e){
+      return false;
+    }
+  }
   public setDoctor(doctor:Doctor): void{
     localStorage.setItem("doctor", JSON.stringify(doctor));
   }
@@ -46,7 +54,12 @@ export class TokenService {
   public clearToken(){
     localStorage.removeItem("token");
   }
-
+  public signOut(){
+    this.clearDoctor();
+    this.clearUser();
+    this.clearToken();
+    this.router.navigate(["/client/login"]);
+  }
   public redirectIfNotSignedIn():void{
     if(this.getToken()==""){
       this.router.navigate(["/client/login"]);

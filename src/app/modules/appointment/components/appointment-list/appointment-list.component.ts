@@ -4,7 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Doctor } from 'src/app/modules/shared/models/Doctor';
 import Appointment from '../../models/Appointment';
 import { AppointmentService } from '../../services/appointment.service';
-import {ConfirmationService} from 'primeng-lts/api';
+import {ConfirmationService} from 'primeng/api';
 
 @Component({
   selector: 'app-appointment-list',

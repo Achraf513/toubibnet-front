@@ -14,10 +14,9 @@ import { QuestionsModule } from './modules/questions/questions.module';
 import { SharedModule } from './modules/shared/shared.module';
 import { AdminModule } from './modules/admin/admin.module';
 import { HomeModule } from './modules/home/home.module';
-import {InputTextModule} from 'primeng-lts/inputtext';
 
-import { CalendarModule } from 'primeng/calendar';
 import { AppointmentModule } from './modules/appointment/appointment.module';
+import { authInterceptorProviders } from './AuthInterceptor.service';
 
 @NgModule({
   declarations: [
@@ -39,7 +38,7 @@ import { AppointmentModule } from './modules/appointment/appointment.module';
     HomeModule,
     AppointmentModule
   ],
-  providers: [],
+  providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

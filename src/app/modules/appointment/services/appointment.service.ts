@@ -20,4 +20,19 @@ export class AppointmentService {
   getDoctor(id:number):Observable<any>{
     return this.http.get<Doctor>(`http://localhost:8080/user/find/${id}`);
   }
+  getAppointmentsHistory(id:number):Observable<Appointment[]>{
+    return this.http.get<Appointment[]>(`${this.url}/history/${id}`);
+  }
+  getFutureAppointments(id:number):Observable<Appointment[]>{
+    return this.http.get<Appointment[]>(`${this.url}/future/${id}`);
+  }
+  formatDate(date:Date):string{
+    date=new Date(date);
+    let hour=date.getHours().toString();
+    if(hour[0]=='8' || hour[0]=='9') hour="0"+hour;
+    let minute=date.getMinutes().toString();
+    if(minute=='0') minute='00';
+    let formatedDate=`${hour}:${minute}`;
+    return formatedDate;
+  }
 }

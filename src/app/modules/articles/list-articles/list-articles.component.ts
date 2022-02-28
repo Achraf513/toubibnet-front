@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RoutingService } from 'src/app/routing.service';
 import { TokenService } from 'src/app/token.service';
 import { ArticlesService } from '../services/articles.service';
 import { UserService } from '../services/user.service';
@@ -17,13 +18,13 @@ export class ListArticlesComponent implements OnInit {
     speciality:"psychiatrie"
   }
   categories:string[]=["Nutrition","Psycho et Sexualité","Grossesse et accouchement","Santé","Beauté et Bien-être"]
-  constructor(private service:ArticlesService,private userService:UserService, private tokenService:TokenService) {
+  constructor(private service:ArticlesService,private userService:UserService, private tokenService:TokenService,private routingService:RoutingService) {
     this.currentUser.id = this.tokenService.getUser()?.id;
   }
 
   ngOnInit(): void {
     this.getAll();
-    
+    this.routingService.setCommunActiveRouteTo("Articles")
   }
   getAll():void
   {

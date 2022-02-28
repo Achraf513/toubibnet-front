@@ -43,7 +43,8 @@ strong{
     font-size: 40px;
 }
 .introduction{
-    margin-top: 55px;
+    transition: 0.7s;
+    margin-top: 100%;
     text-align: center;
     padding-bottom: 65px;
 }
@@ -69,17 +70,23 @@ strong{
     width: 60%;
     margin: auto;
 }
+#title{
+    margin-left: -100%;
+    transition: 0.5s;
+}
 .svgBackground{
     position: absolute;
     top: -50px;
     rotate: 50deg;
-    left: -35%;
+    left: -100%;
+    transition: 0.7s;
     z-index: -1;
 }
 .svgBackground2{
     position: absolute;
     rotate: 50deg;
     top: -200px;
-    right: -35%;
+    right: -100%;
+    transition: 0.7s;
     z-index: -1;
 }

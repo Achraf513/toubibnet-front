@@ -13,28 +13,7 @@ export class HomeScreenComponent implements OnInit {
     private tokenService: TokenService) {
     let token: String = this.tokenService.getToken();
     if(token!=""){
-      this.routingService.changeRoutes([
-        {
-          name: "Accueil",
-          styleClasses: "nav-item active",
-          url: "/home"
-        },
-        {
-          name: "Médecin",
-          styleClasses: "nav-item",
-          url: "/client/viewDoctors"
-        },
-        {
-          name: "Question",
-          styleClasses: "nav-item",
-          url: "/questions"
-        },
-        {
-          name: "Profile",
-          styleClasses: "nav-item",
-          url: "/client/profile"
-        }
-      ]);
+      this.routingService.setCommunActiveRouteTo("Accueil")
     }else{
       this.routingService.changeRoutes([
         {
@@ -51,6 +30,13 @@ export class HomeScreenComponent implements OnInit {
     }
   }
   ngOnInit(): void {
+    //animating
+    setTimeout(()=>{
+      document.getElementById("visual1")!.style.left = "-35%"
+      document.getElementById("visual2")!.style.right = "-35%"
+      document.getElementById("title")!.style.marginLeft = "0"
+      document.getElementById("introductionCols")!.style.marginTop = "55px"
+    },100);
   }
 
 }
