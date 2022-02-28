@@ -1,0 +1,39 @@
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th,
+td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+tr:hover {
+  background-color: rgb(236, 92, 140);
+}
+button {
+  background-color: rgb(15, 135, 255);
+  color: white;
+  padding: 3px 20px;
+  font-size: 16px;
+  border-radius: 6px;
+  display: block;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border: none;
+}
+.btn1 {
+  background-color: rgb(236, 92, 140);
+  color: rgb(20, 20, 20);
+  margin-left: 100px;
+}
+.btn2 {
+  background-color: rgb(255, 185, 35);
+  color: rgb(20, 20, 20);
+}
+strong {
+  margin-right: 5%;
+  font-size: 20px;
+}
