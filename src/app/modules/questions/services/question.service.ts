@@ -31,8 +31,15 @@ export class QuestionService {
     return this.httpClient.delete<boolean>(this.questionUrl + '/' + id);
   }
 
-  public getByWord(mot: String): Observable<Question[]> {
+  public getByWord(mot: string): Observable<Question[]> {
     return this.httpClient.get<Question[]>(this.questionUrl + '/search/' + mot);
   }
 
+  public getByCategorie(category: string | undefined): Observable<Question[]> {
+    return this.httpClient.get<Question[]>(this.questionUrl + '/category/' + category);
+  }
+
+  public getCategories(): Observable<string[]> {
+    return this.httpClient.get<string[]>(this.questionUrl + '/categories');
+  }
 }

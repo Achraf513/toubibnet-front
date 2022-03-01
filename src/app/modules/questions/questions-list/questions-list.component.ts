@@ -4,6 +4,7 @@ import {QuestionService} from "../services/question.service";
 import {Router} from "@angular/router";
 import {RoutingService} from 'src/app/routing.service';
 import {TokenService} from 'src/app/token.service';
+import {SelectItem} from "primeng/api";
 
 @Component({
   selector: 'app-questions-list',
@@ -13,30 +14,46 @@ import {TokenService} from 'src/app/token.service';
 export class QuestionsListComponent implements OnInit {
 
 
-  constructor(private questionService : QuestionService,
-    private routingService:RoutingService,
-    private tokenService:TokenService,
-    private router: Router) {
-      this.routingService.setCommunActiveRouteTo("Question")
-    }
+  constructor(private questionService: QuestionService,
+              private routingService: RoutingService,
+              private tokenService: TokenService,
+              private router: Router) {
+    this.routingService.setCommunActiveRouteTo("Question")
+  }
+
+  selectedCategory!: SelectItem;
+  categories!: string[];
   questions !: Question[];
-  contentSearch!: String;
+  contentSearch!: string;
   id = this.tokenService.getUser()!.id;
   lengthOfList!: number;
+  items!: SelectItem[];
 
   ngOnInit(): void {
     this.tokenService.redirectIfNotSignedIn();
     this.listOfQuestion();
+    this.getCategories();
   }
 
-  listOfQuestion(){
-
+  listOfQuestion() {
     this.questionService.getAll().subscribe(data => {
       this.questions = data;
       this.lengthOfList = data.length;
       this.questions = data.slice(0, 2);
       console.log(data)
     })
+  }
+
+  getCategories() {
+    this.items = [];
+    this.questionService.getCategories().subscribe(data => {
+      console.log(data);
+      for (let i = 0; i < data.length; i++) {
+        this.items.push({label: data[i], value: i});
+      }
+    });
+    console.log(this.items);
+
   }
 
   delete(id: number) {
@@ -75,4 +92,15 @@ export class QuestionsListComponent implements OnInit {
       console.log(data)
     })
   }
+
+  getByCategory() {
+    console.log(this.selectedCategory.label);
+    this.questionService.getByCategorie(this.selectedCategory.label).subscribe(data => {
+      this.lengthOfList = data.length;
+      this.questions = data.slice(0, 2);
+      this.questions = data;
+      console.log(data);
+    });
+  }
+
 }

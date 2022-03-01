@@ -3,9 +3,8 @@
     <h3>Filter</h3>
     <div class="form-group">
       <strong>Category</strong>
-      <p-dropdown placeholder="Select a Category" optionLabel="name"
-                  [showClear]="true"></p-dropdown>
-
+      <p-dropdown [options]="items" [(ngModel)]="selectedCategory" placeholder="Select a Category" optionLabel="label"
+                  (onChange)="getByCategory()"></p-dropdown>
     </div>
     <br/><br/>
   </aside>
