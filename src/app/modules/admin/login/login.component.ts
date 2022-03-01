@@ -1,3 +1,4 @@
+import { TokenService } from 'src/app/token.service';
 import { Login } from './../../shared/models/Login';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
@@ -10,10 +11,11 @@ export class LoginComponent implements OnInit {
 
   loginInfo:Login ={
     email:"",
-    password:""
+    password:"",
+    stayLoggedin:false,
   }
   @Output() loginEvent = new EventEmitter<Login>();
-  constructor() { }
+  constructor(private tokenService:TokenService) { }
 
   ngOnInit(): void {
   }

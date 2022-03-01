@@ -7,6 +7,8 @@ import { AdminRoutingModule } from './admin-routing.module';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { LoginComponent } from './login/login.component';
 import {ButtonModule} from 'primeng-lts/button';
+import {CheckboxModule} from 'primeng-lts/checkbox';
+
 
 @NgModule({
   declarations: [
@@ -19,7 +21,7 @@ import {ButtonModule} from 'primeng-lts/button';
     InputTextModule,
     FormsModule,
     ButtonModule,
-    ButtonModule
+    CheckboxModule
   ],
   exports: [
     LoginComponent

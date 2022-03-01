@@ -42,6 +42,7 @@ export class UserLoginComponent implements OnInit {
   login(login: Login) {
     this.signInService.login(login).subscribe(
       (loginResponse: LoginResponse) => {
+        this.tokenService.stayLoggedIn(login.stayLoggedin);
         this.tokenService.setUser(loginResponse.user);
         this.tokenService.setToken(loginResponse.jwttoken);
         if (loginResponse.user.roles.find((role) => role.name == 'DOCTOR')) {
@@ -50,8 +51,6 @@ export class UserLoginComponent implements OnInit {
             .subscribe((signedDoctor: Doctor) =>
               this.tokenService.setDoctor(signedDoctor)
             );
-        } else {
-          this.tokenService.clearDoctor();
         }
         this.router.navigate(['/home']);
       },

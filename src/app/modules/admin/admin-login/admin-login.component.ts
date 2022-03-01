@@ -1,3 +1,4 @@
+import { TokenService } from 'src/app/token.service';
 import { LoginResponse } from './../../shared/models/LoginResponse';
 import { LoginService } from './../services/login.service';
 import { Login } from './../../shared/models/Login';
@@ -11,7 +12,9 @@ import { RoutingService } from 'src/app/routing.service';
 })
 export class AdminLoginComponent implements OnInit {
 
-  constructor(private routingService: RoutingService,private loginService:LoginService) {
+  constructor(private routingService: RoutingService,
+    private loginService:LoginService,
+    private tokenService:TokenService) {
     this.routingService.changeRoutes([{
       name: "Accueil",
       styleClasses: "nav-item",
@@ -22,8 +25,10 @@ export class AdminLoginComponent implements OnInit {
   ngOnInit(): void {
   }
   login(login:Login){
-    this.loginService.login(login).subscribe((loginResponse:LoginResponse)=>{
-      alert(loginResponse.jwttoken)
+    this.loginService.adminLogin(login).subscribe((loginResponse:LoginResponse)=>{
+      this.tokenService.stayLoggedIn(login.stayLoggedin);
+      this.tokenService.setUser(loginResponse.user);
+      this.tokenService.setToken(loginResponse.jwttoken);
     },
     (error) =>console.log(error)
     );

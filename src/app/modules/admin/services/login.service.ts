@@ -12,7 +12,7 @@ export class LoginService {
 constructor(private http: HttpClient) {
 
  }
- login(login:Login): Observable<LoginResponse> {
+ adminLogin(login:Login): Observable<LoginResponse> {
   return this.http.post<LoginResponse>(this.apiURL+"auth/signin/admin",login);
 }
 

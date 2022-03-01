@@ -2,7 +2,7 @@
 
   <!-- medicines / pharmacy / servey-question / client / appointement -->
 
-  <section class="centred-content">
+  <section class="centered-content">
 
     <!-- None sense simply to illustrate-->
     <section class="subsection-content">
@@ -10,9 +10,11 @@
       <div class="p-inputgroup">
         <input class="input-question-form" [(ngModel)]="question.title" type="text" pInputText placeholder="Title">
       </div>
-      <div class="p-inputgroup">
+      <div class="last p-inputgroup">
         <input class="input-question-form" [(ngModel)]="question.content" type="text" pInputText placeholder="Content">
       </div>
+      <p-dropdown class="dropdown" [options]="items" [(ngModel)]="selectedCategory" placeholder="Select a Category"
+                  optionLabel="label"></p-dropdown>
       <button class="input-add-btn" (click)="update()">Modify</button>
     </section>
   </section>

@@ -32,7 +32,7 @@ export class QuestionsDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.currentUserId = this.tokenService.getUser()!.id;
     this.id = this.activatedRoute.snapshot.params['id'];
-    this.questionService.getQuestion(this.id).subscribe(data => {
+    this.questionService.getById(this.id).subscribe(data => {
       this.question = data;
     })
     this.getAnswers();

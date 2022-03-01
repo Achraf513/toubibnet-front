@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Doctor } from '../../shared/models/Doctor';
 import { DoctorsService } from '../doctors.service';
 import { ESpeciality } from '../../shared/models/enum/ESpecialty';
@@ -10,7 +10,7 @@ import { TokenService } from 'src/app/token.service';
   templateUrl: './view-doctors.component.html',
   styleUrls: ['./view-doctors.component.css']
 })
-export class ViewDoctorsComponent implements OnInit {
+export class ViewDoctorsComponent implements OnInit, AfterViewInit {
   doctorName: String = "";
   specialities: Array<String> = ["Specialité"];
   governorates: Array<String> = ["Governorat"];
@@ -25,21 +25,8 @@ export class ViewDoctorsComponent implements OnInit {
     this.tokenService.redirectIfNotSignedIn();
     this.routingService.setCommunActiveRouteTo("Médecin")
   }
-  onScroll(event:any){
-    console.log(event);
-  }
-  ngOnInit(): void {
-    this.doctorsService.getDoctors().subscribe((doctors) => {
-      this.doctors = doctors;
-      this.displayedDoctors = this.doctors;
-    })
+  ngAfterViewInit(): void {
     document.addEventListener("scroll",this.scrollHandler)
-    this.specialities = this.specialities.concat(Object.entries(ESpeciality).filter(e => !isNaN(e[0] as any)).map(e => e[1].toString()));
-    this.selectedSpecialty = this.specialities[0];
-
-    this.governorates = this.governorates.concat(Object.entries(EGovernorate).map(e => e[1].toString()));
-    this.selectedGovernorate = this.governorates[0];
-    
     //animating
     setTimeout(()=>{
       document.getElementById("visual1")!.style.left = "-35%"
@@ -49,6 +36,18 @@ export class ViewDoctorsComponent implements OnInit {
       document.getElementById("content")!.style.marginTop = "0"
     },100);
   }
+  ngOnInit(): void {
+    this.doctorsService.getDoctors().subscribe((doctors) => {
+      this.doctors = doctors;
+      this.displayedDoctors = this.doctors;
+    })
+    this.specialities = this.specialities.concat(Object.entries(ESpeciality).filter(e => !isNaN(e[0] as any)).map(e => e[1].toString()));
+    this.selectedSpecialty = this.specialities[0];
+
+    this.governorates = this.governorates.concat(Object.entries(EGovernorate).map(e => e[1].toString()));
+    this.selectedGovernorate = this.governorates[0];
+  }
+
   private scrollHandler() {
     if(document.getElementById("filterBar")==undefined){
       document.removeEventListener("scroll",this.scrollHandler);
@@ -64,6 +63,7 @@ export class ViewDoctorsComponent implements OnInit {
   filterSearch(): void {
     this.displayedDoctors = this.doctorsService.getFilteredDoctors(this.doctorName, this.selectedSpecialty, this.selectedGovernorate, this.doctors);
   }
+  
   resetFilter(): void {
     this.doctorName = "";
     this.selectedSpecialty = this.specialities[0];
