@@ -18,13 +18,13 @@ export class UpdateQuestionComponent implements OnInit {
 
   ngOnInit(): void {
     this.id = this.activatedRoute.snapshot.params['id'];
-    this.questionService.getQuestion(this.id).subscribe(data => {
+    this.questionService.getById(this.id).subscribe(data => {
       this.question = data
     })
   }
 
   update() {
-    this.questionService.updateQuestion(this.question).subscribe(data=>{
+    this.questionService.update(this.question).subscribe(data => {
       console.log(data)
       this.router.navigate(['/questions']);
     });

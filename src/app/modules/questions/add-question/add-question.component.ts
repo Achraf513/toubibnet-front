@@ -25,7 +25,7 @@ export class AddQuestionComponent implements OnInit {
 
   add() {
     this.question.date=new Date();
-    this.questionService.addQuestion(this.question, this.id).subscribe(data => {
+    this.questionService.add(this.question, this.id).subscribe(data => {
       console.log(data)
       this.router.navigate(['/questions']);
     });

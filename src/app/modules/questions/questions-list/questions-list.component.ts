@@ -31,18 +31,18 @@ export class QuestionsListComponent implements OnInit {
 
   listOfQuestion(){
 
-    this.questionService.getQuestions().subscribe(data=>{
-      this.questions=data;
-      this.lengthOfList =data.length;
-      this.questions=data.slice(0,2);
+    this.questionService.getAll().subscribe(data => {
+      this.questions = data;
+      this.lengthOfList = data.length;
+      this.questions = data.slice(0, 2);
       console.log(data)
     })
   }
 
   delete(id: number) {
-    this.questionService.deleteQuestion(id).subscribe(data=>{
+    this.questionService.delete(id).subscribe(data => {
       console.log(data)
-      if(data){
+      if (data) {
         this.listOfQuestion()
       }
     })
@@ -68,10 +68,10 @@ export class QuestionsListComponent implements OnInit {
   }
 
   paginate(event: any) {
-    this.questionService.getQuestions().subscribe(data=>{
-      this.questions=data;
-      this.lengthOfList =data.length;
-      this.questions=data.slice(event.first,event.first+event.rows);
+    this.questionService.getAll().subscribe(data => {
+      this.questions = data;
+      this.lengthOfList = data.length;
+      this.questions = data.slice(event.first, event.first + event.rows);
       console.log(data)
     })
   }
