@@ -14,7 +14,7 @@ export class UpdateQuestionComponent implements OnInit {
   question  ={} as Question;
   id!:number;
   items!: SelectItem[];
-  selectedCategory!: SelectItem;
+  selectedCategory: SelectItem = {value: 0};
   constructor(private router: Router,
               private activatedRoute: ActivatedRoute,
               private questionService: QuestionService) { }
@@ -22,22 +22,20 @@ export class UpdateQuestionComponent implements OnInit {
   ngOnInit(): void {
     this.id = this.activatedRoute.snapshot.params['id'];
     this.questionService.getById(this.id).subscribe(data => {
-      this.question = data
-    })
-    this.getCategories();
+      this.question = data;
+      this.getCategories();
+    });
   }
   getCategories() {
     this.items = [];
     this.questionService.getCategories().subscribe(data => {
+      this.selectedCategory = {label: this.question.category, value: data.indexOf(this.question.category)}
       console.log(data);
       for (let i = 0; i < data.length; i++) {
         this.items.push({label: data[i], value: i});
       }
-      this.selectedCategory={ label :this.question.category,value :data.indexOf(this.question.category)}
     });
-
     console.log(this.items);
-
   }
 
   update() {

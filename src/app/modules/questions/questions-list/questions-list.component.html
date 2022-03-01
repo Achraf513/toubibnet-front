@@ -43,7 +43,7 @@
     </section>
     <section class="content-subSection" *ngIf="questions.length==0">
         <div>
-          <h6>Aucune réponse ne correspond à votre recherche</h6>
+          <h6>Aucune question ne correspond à votre recherche</h6>
         </div>
     </section>
       <p-paginator [rows]="2" [totalRecords]="lengthOfList" (onPageChange)="paginate($event)"></p-paginator>
