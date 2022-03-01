@@ -2,7 +2,7 @@
   <aside class="filter-aside aside">
     <h3>Filter</h3>
     <div class="form-group">
-      <strong>Category</strong>
+      <strong>Category : </strong>
       <p-dropdown [options]="items" [(ngModel)]="selectedCategory" placeholder="Select a Category" optionLabel="label"
                   (onChange)="getByCategory()"></p-dropdown>
     </div>
@@ -46,12 +46,10 @@
           <h6>Aucune réponse ne correspond à votre recherche</h6>
         </div>
     </section>
-      <section class="content-subSection" *ngIf="questions.length==0">
-        <div>
-          <h6>Aucune réponse ne correspond à votre recherche</h6>
-        </div>
-      </section>
+      <p-paginator [rows]="2" [totalRecords]="lengthOfList" (onPageChange)="paginate($event)"></p-paginator>
     </section>
+
   </section>
+
 </section>
-<p-paginator [rows]="2" [totalRecords]="lengthOfList" (onPageChange)="paginate($event)"></p-paginator>
+

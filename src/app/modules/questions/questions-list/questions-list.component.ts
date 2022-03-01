@@ -85,12 +85,23 @@ export class QuestionsListComponent implements OnInit {
   }
 
   paginate(event: any) {
+    console.log(this.selectedCategory)
+    if(this.selectedCategory==undefined){
     this.questionService.getAll().subscribe(data => {
       this.questions = data;
       this.lengthOfList = data.length;
       this.questions = data.slice(event.first, event.first + event.rows);
       console.log(data)
     })
+    }
+    else {
+      this.questionService.getByCategorie(this.selectedCategory.label).subscribe(data => {
+        this.lengthOfList = data.length;
+        this.questions = data.slice(event.first, event.first + event.rows);
+        console.log(data);
+      });
+
+    }
   }
 
   getByCategory() {
@@ -98,7 +109,6 @@ export class QuestionsListComponent implements OnInit {
     this.questionService.getByCategorie(this.selectedCategory.label).subscribe(data => {
       this.lengthOfList = data.length;
       this.questions = data.slice(0, 2);
-      this.questions = data;
       console.log(data);
     });
   }
