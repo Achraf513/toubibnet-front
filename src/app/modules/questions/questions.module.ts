@@ -9,12 +9,12 @@ import {AddQuestionComponent} from './add-question/add-question.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {UpdateQuestionComponent} from './update-question/update-question.component';
 import {QuestionsDetailsComponent} from './questions-details/questions-details.component';
-import {DropdownModule} from "primeng-lts/dropdown";
+import {DropdownModule} from "primeng/dropdown";
 import {InputTextModule} from "primeng-lts/inputtext";
 import {ButtonModule} from "primeng-lts/button";
 import {ToastModule} from "primeng-lts/toast";
 import {PaginatorModule} from "primeng/paginator";
-import { authInterceptorProviders } from 'src/app/AuthInterceptor.service';
+import {authInterceptorProviders} from 'src/app/AuthInterceptor.service';
 
 
 @NgModule({
@@ -35,7 +35,7 @@ import { authInterceptorProviders } from 'src/app/AuthInterceptor.service';
     InputTextModule,
     ButtonModule,
     ToastModule,
-    PaginatorModule
+    PaginatorModule,
   ],
   providers: [
     authInterceptorProviders

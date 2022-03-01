@@ -3,6 +3,7 @@ import {Question} from "../../shared/models/Question";
 import {QuestionService} from "../services/question.service";
 import {Router} from "@angular/router";
 import {TokenService} from "../../../token.service";
+import {SelectItem} from "primeng/api";
 
 @Component({
   selector: 'app-add-question',
@@ -12,7 +13,8 @@ import {TokenService} from "../../../token.service";
 export class AddQuestionComponent implements OnInit {
   id!: number;
   question = {} as Question;
-
+  items!: SelectItem[];
+  selectedCategory!: SelectItem;
 
   constructor(private questionService: QuestionService,
               private router: Router,
@@ -21,11 +23,28 @@ export class AddQuestionComponent implements OnInit {
 
   ngOnInit(): void {
     this.id = this.tokenService.getUser()!.id;
+    this.getCategories();
+  }
+
+  getCategories() {
+    this.items = [];
+    this.questionService.getCategories().subscribe(data => {
+      console.log(data);
+      for (let i = 0; i < data.length; i++) {
+        this.items.push({label: data[i], value: i});
+      }
+    });
+    console.log(this.items);
+
   }
 
   add() {
-    this.question.date=new Date();
-    this.questionService.addQuestion(this.question, this.id).subscribe(data => {
+    this.question.date = new Date();
+    console.log(this.selectedCategory);
+    if (this.selectedCategory.label != null) {
+      this.question.category = this.selectedCategory.label;
+    }
+    this.questionService.add(this.question, this.id).subscribe(data => {
       console.log(data)
       this.router.navigate(['/questions']);
     });

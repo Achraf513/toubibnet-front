@@ -8,26 +8,40 @@ import {Observable} from "rxjs";
 })
 export class QuestionService {
 
-  private questionUrl = 'http://localhost:8082/question';
-  constructor(private httpClient: HttpClient) { }
+  private questionUrl = 'http://localhost:8080/question';
 
-  public addQuestion(question: Question,id:number): Observable<Question>{
-    return this.httpClient.post<Question>(this.questionUrl+'/'+id, question);
+  constructor(private httpClient: HttpClient) {
   }
-  public updateQuestion(question: Question): Observable<Question>{
+
+  public add(question: Question, id: number): Observable<Question> {
+    return this.httpClient.post<Question>(this.questionUrl + '/' + id, question);
+  }
+
+  public update(question: Question): Observable<Question> {
     return this.httpClient.put<Question>(this.questionUrl, question);
   }
-  public getQuestions (): Observable<Question[]>{
+
+  public getAll(): Observable<Question[]> {
     return this.httpClient.get<Question[]>(this.questionUrl);
   }
-  public getQuestion (id:number): Observable<Question>{
-    return this.httpClient.get<Question>(this.questionUrl+'/'+id);
-  }
-  public deleteQuestion(id: number): Observable<boolean>{
-    return this.httpClient.delete<boolean>(this.questionUrl+'/'+ id);
-  }
-  public getByWord(mot:String):Observable<Question[]>{
-    return this.httpClient.get<Question[]>(this.questionUrl+'/search/'+mot);
+
+  public getById(id: number): Observable<Question> {
+    return this.httpClient.get<Question>(this.questionUrl + '/' + id);
   }
 
+  public delete(id: number): Observable<boolean> {
+    return this.httpClient.delete<boolean>(this.questionUrl + '/' + id);
+  }
+
+  public getByWord(mot: string): Observable<Question[]> {
+    return this.httpClient.get<Question[]>(this.questionUrl + '/search/' + mot);
+  }
+
+  public getByCategorie(category: string | undefined): Observable<Question[]> {
+    return this.httpClient.get<Question[]>(this.questionUrl + '/category/' + category);
+  }
+
+  public getCategories(): Observable<string[]> {
+    return this.httpClient.get<string[]>(this.questionUrl + '/categories');
+  }
 }
