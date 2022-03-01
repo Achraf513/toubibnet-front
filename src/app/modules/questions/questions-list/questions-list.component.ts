@@ -22,6 +22,7 @@ export class QuestionsListComponent implements OnInit {
   questions !: Question[];
   contentSearch!: String;
   id = this.tokenService.getUser()!.id;
+  lengthOfList!: number;
 
   ngOnInit(): void {
     this.tokenService.redirectIfNotSignedIn();
@@ -32,6 +33,8 @@ export class QuestionsListComponent implements OnInit {
 
     this.questionService.getQuestions().subscribe(data=>{
       this.questions=data;
+      this.lengthOfList =data.length;
+      this.questions=data.slice(0,2);
       console.log(data)
     })
   }
@@ -62,5 +65,14 @@ export class QuestionsListComponent implements OnInit {
       this.questions=data;
       console.log(data)
     });
+  }
+
+  paginate(event: any) {
+    this.questionService.getQuestions().subscribe(data=>{
+      this.questions=data;
+      this.lengthOfList =data.length;
+      this.questions=data.slice(event.first,event.first+event.rows);
+      console.log(data)
+    })
   }
 }

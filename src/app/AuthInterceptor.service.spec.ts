@@ -1,7 +1,7 @@
 /* tslint:disable:no-unused-variable */
 
 import { TestBed, async, inject } from '@angular/core/testing';
-import { authInterceptorProviders } from './AuthInterceptor.service';
+import { AuthInterceptorService } from './AuthInterceptor.service';
 
 
 describe('Service: AuthInterceptor', () => {

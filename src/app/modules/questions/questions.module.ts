@@ -14,6 +14,7 @@ import {InputTextModule} from "primeng-lts/inputtext";
 import {ButtonModule} from "primeng-lts/button";
 import {ToastModule} from "primeng-lts/toast";
 import {PaginatorModule} from "primeng/paginator";
+import { authInterceptorProviders } from 'src/app/AuthInterceptor.service';
 
 
 @NgModule({
@@ -36,6 +37,8 @@ import {PaginatorModule} from "primeng/paginator";
     ToastModule,
     PaginatorModule
   ],
-  providers: []
+  providers: [
+    authInterceptorProviders
+  ]
 })
 export class QuestionsModule { }

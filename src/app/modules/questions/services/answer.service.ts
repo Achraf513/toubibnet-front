@@ -7,7 +7,7 @@ import {Observable} from "rxjs";
   providedIn: 'root'
 })
 export class AnswerService {
-  private answerUrl = 'http://localhost:8080/answer';
+  private answerUrl = 'http://localhost:8082/answer';
 
   constructor(private httpClient: HttpClient) {
   }
