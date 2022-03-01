@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { RoutingService } from 'src/app/routing.service';
 import { TokenService } from 'src/app/token.service';
 
@@ -7,14 +7,28 @@ import { TokenService } from 'src/app/token.service';
   templateUrl: './home-screen.component.html',
   styleUrls: ['./home-screen.component.css']
 })
-export class HomeScreenComponent implements OnInit {
+export class HomeScreenComponent implements OnInit, AfterViewInit {
   isLoggedIn: boolean = false;
   constructor(private routingService: RoutingService,
     private tokenService: TokenService) {
+    this.initRoutes();
+  }
+  ngAfterViewInit(): void {
+    //animating
+    setTimeout(()=>{
+      document.getElementById("visual1")!.style.left = "-35%"
+      document.getElementById("visual2")!.style.right = "-35%"
+      document.getElementById("title")!.style.marginLeft = "0"
+      document.getElementById("introductionCols")!.style.marginTop = "55px"
+    },100);
+  }
+  ngOnInit(): void {
+  }
+  private initRoutes() {
     let token: String = this.tokenService.getToken();
-    if(token!=""){
-      this.routingService.setCommunActiveRouteTo("Accueil")
-    }else{
+    if (token != "") {
+      this.routingService.setCommunActiveRouteTo("Accueil");
+    } else {
       this.routingService.changeRoutes([
         {
           name: "Accueil",
@@ -28,15 +42,6 @@ export class HomeScreenComponent implements OnInit {
         }
       ]);
     }
-  }
-  ngOnInit(): void {
-    //animating
-    setTimeout(()=>{
-      document.getElementById("visual1")!.style.left = "-35%"
-      document.getElementById("visual2")!.style.right = "-35%"
-      document.getElementById("title")!.style.marginLeft = "0"
-      document.getElementById("introductionCols")!.style.marginTop = "55px"
-    },100);
   }
 
 }

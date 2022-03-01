@@ -28,8 +28,7 @@ export class TokenService {
   }
   public isDoctor():boolean{
     try{
-      JSON.parse(localStorage.getItem("user")!).governorate;
-      return true
+      return JSON.parse(localStorage.getItem("user")!).governorate == undefined?false:true;
     }catch(e){
       return false;
     }
