@@ -21,7 +21,7 @@
 #profileContainer .doctor h6 {
   font-size: 15px;
   color: black;
-  font-weight: 300;
+  font-weight: 400;
 }
 #profileContainer .doctor h6 span {
   font-weight: 600;
@@ -37,7 +37,7 @@
   margin-bottom: 5px;
 }
 #profileContainer textarea {
-  height: 80px;
+  height: 100px;
   width: 100%;
   display: block;
   resize: none;
@@ -67,6 +67,12 @@
   display: inline-block;
   width: 50%;
   padding: 0 5px;
+  vertical-align: top;
+}
+#profileContainer .inner-col{
+  display: inline-block;
+  width: 50%;
+  padding: 0 0;
   vertical-align: top;
 }
 #profileContainer .leftcol {
@@ -180,7 +186,7 @@
   margin-bottom: 5px;
 }
 #updateContainer textarea {
-  height: 50px;
+  height: 80px;
   width: 100%;
   display: block;
   resize: none;
@@ -279,4 +285,16 @@
 }
 .fixed {
   position: fixed;
+}
+.ng-touched:not(form) .ng-invalid:not(form)  {
+  border: 1px solid #a94442 !important;
+}
+.errorMsg{
+  background-color: rgb(240, 171, 171);
+  padding: 10px;
+  border-radius: 6px;
+  text-align: center;
+  margin-top: -10px;
+  margin-bottom: 5px;
+  color: #a94442;
 }

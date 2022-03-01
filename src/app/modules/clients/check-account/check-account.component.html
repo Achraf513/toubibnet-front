@@ -3,7 +3,7 @@
         <div class="content-subSection center">
             <div class="editBtnContainer">
                 <button (click)="disconnect()" class="signOutBtn btn-primary" type="button"><i
-                    class="pi pi-sign-out"></i><span>Déconnecter</span></button>
+                        class="pi pi-sign-out"></i><span>Déconnecter</span></button>
                 <button (click)="goToUpdate()" class="editBtn btn-primary" type="button"><i
                         class="pi pi-user-edit"></i><span>Modifier</span></button>
             </div>
@@ -22,24 +22,28 @@
         <div class="content-subSection center">
             <div class="editBtnContainer">
                 <button (click)="disconnect()" class="signOutBtn btn-primary" type="button"><i
-                    class="pi pi-sign-out"></i><span>Déconnecter</span></button>
+                        class="pi pi-sign-out"></i><span>Déconnecter</span></button>
                 <button (click)="goToUpdate()" class="editBtn btn-primary" type="button"><i
                         class="pi pi-user-edit"></i><span>Modifier</span></button>
             </div>
             <div class="col-1-2 leftcol">
                 <img src="../../../../assets/images/profile.jpg" alt="">
                 <button (click)="goToHistory()" class="btn-history btn-primary" type="button"><i
-                    class="pi pi-calendar"></i><span>Historique des rendez-vous</span></button>
+                        class="pi pi-calendar"></i><span>Historique des rendez-vous</span></button>
                 <button (click)="goToFuture()" class="btn-future btn-primary" type="button"><i
                         class="pi pi-users"></i><span>consulter les rendez-vous</span></button>
             </div>
             <div class="col-1-2 rightcol doctor">
-                <h6><span>Nom : </span>{{doctor!.firstName}}</h6>
-                <h6><span>Prenom : </span>{{doctor!.lastName}}</h6>
+                <div class="col-1-2 inner-col">
+                    <h6><span>Nom : </span>{{doctor!.firstName}}</h6>
+                    <h6><span>Prenom : </span>{{doctor!.lastName}}</h6>
+                </div>
+                <div class="col-1-2 inner-col">
+                    <h6><span>Specialitié : </span> {{doctor!.speciality}}</h6>
+                    <h6><span>Governorat : </span> {{doctor!.governorate}}</h6>
+                </div>
                 <h6><span>Email : </span> {{doctor!.email}}</h6>
                 <h6><span>Téléphone : </span> {{doctor!.phoneNumber}}</h6>
-                <h6><span>Specialitié : </span> {{doctor!.speciality}}</h6>
-                <h6><span>Governorat : </span> {{doctor!.governorate}}</h6>
                 <h6><span>Address : </span> {{doctor!.address}}</h6>
                 <h6><span>Description : </span> {{doctor!.description}} Lorem ipsum dolor, sit amet consectetur
                     adipisicing elit. Saepe nobis perferendis cupiditate sit? Illum ad nihil iste quas alias voluptatem
@@ -54,6 +58,7 @@
             <div class="content-subSection center">
                 <button class="btn-close" (click)="goToProfile()"><i class="pi pi-times"></i></button>
                 <h5>Modifier vos informations personnelles ?</h5>
+                <p *ngIf="errorMsg!=''" class="errorMsg">{{errorMsg}}</p>
                 <div class="col-1-2 leftcol">
                     <input type="text" name="firstName" pInputText placeholder="Entrer votre prenom"
                         formControlName="name">
@@ -79,26 +84,27 @@
             <form [formGroup]="userFormGroup">
                 <button class="btn-close" (click)="goToProfile()"><i class="pi pi-times"></i></button>
                 <h5>Modifier vos informations personnelles ?</h5>
+                <p *ngIf="errorMsg!=''" class="errorMsg">{{errorMsg}}</p>
                 <div class="col-1-2 leftcol">
                     <input type="text" name="firstName" pInputText placeholder="Entrer votre prenom"
-                    formControlName="name">
+                        formControlName="name">
                     <p-dropdown [style]="{'width':'100%', 'marginBottom':'5px', 'height': '40px'}"
                         [options]="specialities" formControlName="speciality"></p-dropdown>
 
                 </div>
                 <div class="col-1-2 rightcol">
                     <input type="text" name="lastName" pInputText placeholder="Entrer votre nom"
-                    formControlName="familyName">
+                        formControlName="familyName">
                     <p-dropdown [style]="{'width':'100%', 'marginBottom':'5px', 'height': '40px'}"
                         [options]="governorates" formControlName="governorate"></p-dropdown>
                 </div>
                 <div class="col-1-1">
                     <input type="text" name="phoneNumber" pInputText placeholder="Numéro de téléphone"
-                    formControlName="phoneNumber">
-                    <textarea type="text" pInputText placeholder="Description"
-                    formControlName="description"></textarea>
+                        formControlName="phoneNumber">
+                    <textarea type="text" pInputText placeholder="Description" formControlName="description"></textarea>
                     <input type="password" formControlName="password" pInputText placeholder="Mot de passe">
-                    <input type="password" formControlName="retypedPassword" pInputText placeholder="Retapez le mot de passe">
+                    <input type="password" formControlName="retypedPassword" pInputText
+                        placeholder="Retapez le mot de passe">
                     <button pButton type="button" (click)="onSubmit()" label="Soumettre"></button>
                 </div>
             </form>
