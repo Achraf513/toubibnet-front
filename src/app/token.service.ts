@@ -8,15 +8,24 @@ import { User } from './modules/shared/models/User';
 })
 export class TokenService {
 
-  constructor(private router:Router) { }
+  storage:Storage=localStorage;
+  constructor(private router:Router) {
+    if(localStorage.getItem("token")!=null)
+      this.storage=localStorage;
+    else
+      this.storage=sessionStorage
+   }
+  public stayLoggedIn(value:boolean){
+    this.storage= value ? localStorage : sessionStorage;
+  }
   public setUser(user: User): void {
-    localStorage.setItem("user", JSON.stringify(user));
+    this.storage.setItem("user", JSON.stringify(user));
   }
   public setToken(token: string): void {
-    localStorage.setItem("token", "Bearer " + token);
+    this.storage.setItem("token", "Bearer " + token);
   }
   public getUser(): User | null {
-    let userString = localStorage.getItem("user");
+    let userString = this.storage.getItem("user");
     if (userString == null) {
       return null;
     }
@@ -24,21 +33,21 @@ export class TokenService {
     return user;
   }
   public getToken(): string {
-    return localStorage.getItem("token") ?? "";
+    return this.storage.getItem("token") ?? "";
   }
   public isDoctor():boolean{
     try{
-      JSON.parse(localStorage.getItem("user")!).governorate;
+      JSON.parse(this.storage.getItem("user")!).governorate;
       return true
     }catch(e){
       return false;
     }
   }
   public setDoctor(doctor:Doctor): void{
-    localStorage.setItem("doctor", JSON.stringify(doctor));
+    this.storage.setItem("doctor", JSON.stringify(doctor));
   }
   public getDoctor(): Doctor | null {
-    let doctorString = localStorage.getItem("doctor");
+    let doctorString = this.storage.getItem("doctor");
     if (doctorString == null) {
       return null;
     }
@@ -46,13 +55,13 @@ export class TokenService {
     return doctor;
   }
   public clearDoctor(){
-    localStorage.removeItem("doctor");
+    this.storage.removeItem("doctor");
   }
   public clearUser(){
-    localStorage.removeItem("user");
+    this.storage.removeItem("user");
   }
   public clearToken(){
-    localStorage.removeItem("token");
+    this.storage.removeItem("token");
   }
   public signOut(){
     this.clearDoctor();

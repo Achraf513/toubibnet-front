@@ -27,7 +27,7 @@ export class SignUpUserComponent implements OnInit {
     this.signUpService.signUpUser(this.userInfo).subscribe(()=>{
       this.router.navigate(["client/login"])
     },
-    (error) =>console.log(error)
+    (error) =>console.log(error.error)
     );
   }
 }
