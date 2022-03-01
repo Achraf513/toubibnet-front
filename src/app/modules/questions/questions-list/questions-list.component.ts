@@ -46,10 +46,11 @@ export class QuestionsListComponent implements OnInit {
 
   getCategories() {
     this.items = [];
+    this.items.push({label:"All",value:0})
     this.questionService.getCategories().subscribe(data => {
       console.log(data);
       for (let i = 0; i < data.length; i++) {
-        this.items.push({label: data[i], value: i});
+        this.items.push({label: data[i], value: i+1});
       }
     });
     console.log(this.items);
@@ -86,7 +87,7 @@ export class QuestionsListComponent implements OnInit {
 
   paginate(event: any) {
     console.log(this.selectedCategory)
-    if (this.selectedCategory == undefined) {
+    if (this.selectedCategory == undefined||this.selectedCategory.value=="All") {
       this.questionService.getAll().subscribe(data => {
         this.questions = data;
         this.lengthOfList = data.length;
@@ -104,12 +105,16 @@ export class QuestionsListComponent implements OnInit {
   }
 
   getByCategory() {
-    console.log(this.selectedCategory.label);
+    if(this.selectedCategory.label=="All"){
+      this.listOfQuestion();
+    }
+    else {
     this.questionService.getByCategorie(this.selectedCategory.label).subscribe(data => {
       this.lengthOfList = data.length;
       this.questions = data.slice(0, 2);
       console.log(data);
     });
+    }
   }
 
 }
