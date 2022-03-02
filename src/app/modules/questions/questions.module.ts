@@ -15,6 +15,7 @@ import {ButtonModule} from "primeng-lts/button";
 import {ToastModule} from "primeng-lts/toast";
 import {PaginatorModule} from "primeng/paginator";
 import {authInterceptorProviders} from 'src/app/AuthInterceptor.service';
+import {TabMenuModule} from "primeng/tabmenu";
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import {authInterceptorProviders} from 'src/app/AuthInterceptor.service';
     ButtonModule,
     ToastModule,
     PaginatorModule,
+    TabMenuModule,
   ],
   providers: [
     authInterceptorProviders

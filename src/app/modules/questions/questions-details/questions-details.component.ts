@@ -53,7 +53,7 @@ export class QuestionsDetailsComponent implements OnInit {
   }
 
   confirm() {
-    this.answer.date = new Date();
+    this.answer.dateCreated = new Date();
     this.answer.doctor.id = this.currentUserId;
     this.answer.question.id = this.id;
     this.answer.description = this.comment;

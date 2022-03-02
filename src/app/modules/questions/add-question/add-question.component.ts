@@ -39,7 +39,6 @@ export class AddQuestionComponent implements OnInit {
   }
 
   add() {
-    this.question.date = new Date();
     console.log(this.selectedCategory);
     if (this.selectedCategory.label != null) {
       this.question.category = this.selectedCategory.label;

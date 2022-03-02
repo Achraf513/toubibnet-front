@@ -5,6 +5,7 @@ export interface Question{
   user: User,
   title: string,
   content: string,
-  date: Date
+  dateCreated: Date,
+  dateModified: Date,
   category: string
 }

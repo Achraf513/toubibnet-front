@@ -4,7 +4,8 @@ import {QuestionService} from "../services/question.service";
 import {Router} from "@angular/router";
 import {RoutingService} from 'src/app/routing.service';
 import {TokenService} from 'src/app/token.service';
-import {SelectItem} from "primeng/api";
+import {MenuItem, SelectItem} from "primeng/api";
+
 
 @Component({
   selector: 'app-questions-list',
@@ -13,6 +14,7 @@ import {SelectItem} from "primeng/api";
 })
 export class QuestionsListComponent implements OnInit {
 
+  items2!: MenuItem[];
 
   constructor(private questionService: QuestionService,
               private routingService: RoutingService,
@@ -30,6 +32,10 @@ export class QuestionsListComponent implements OnInit {
   items!: SelectItem[];
 
   ngOnInit(): void {
+    this.items2 = [
+      {label: 'Tout les questions', icon: 'pi pi-fw pi-home'},
+      {label: 'Mes questions', icon: 'pi pi-fw pi-calendar'}
+    ];
     this.tokenService.redirectIfNotSignedIn();
     this.listOfQuestion();
     this.getCategories();
@@ -117,4 +123,7 @@ export class QuestionsListComponent implements OnInit {
     }
   }
 
+  changeQuestion($event:any) {
+    console.log("saif")
+  }
 }
