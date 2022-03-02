@@ -71,7 +71,7 @@ export class CheckAccountComponent implements OnInit, AfterViewInit {
   }
 
   private initDoctorAttributes() {
-    this.doctor = JSON.parse(localStorage.getItem('user')!);
+    this.doctor =this.tokenService.getDoctor();
     this.specialities = this.specialities.concat(
       Object.entries(ESpeciality)
         .filter((e) => !isNaN(e[0] as any))

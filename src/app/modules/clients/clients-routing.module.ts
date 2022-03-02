@@ -1,3 +1,5 @@
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { PasswordResetComponent } from './password-reset/password-reset.component';
 import { UserLoginComponent } from './user-login/user-login.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -12,6 +14,8 @@ const routes: Routes = [
   {path:"signUp/user",component:SignUpUserComponent},
   {path:"signUp/doctor",component:SignUpDoctorComponent},
   {path:"login",component:UserLoginComponent},
+  {path:"login/forgotpassword",component:ForgotPasswordComponent},
+  {path:"passwordreset/:token",component:PasswordResetComponent},
 ];
 
 

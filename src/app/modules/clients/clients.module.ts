@@ -17,6 +17,8 @@ import { SignUpDoctorComponent } from './sign-up-doctor/sign-up-doctor.component
 import { ToastModule } from 'primeng-lts/toast';
 import {MessageService} from 'primeng-lts/api';
 import { authInterceptorProviders } from 'src/app/AuthInterceptor.service';
+import { PasswordResetComponent } from './password-reset/password-reset.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,8 @@ import { authInterceptorProviders } from 'src/app/AuthInterceptor.service';
     CheckAccountComponent,
     SignUpDoctorComponent,
     UserLoginComponent,
+    PasswordResetComponent,
+    ForgotPasswordComponent,
   ],
   imports: [
     HttpClientModule,
