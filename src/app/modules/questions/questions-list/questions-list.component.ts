@@ -42,10 +42,9 @@ export class QuestionsListComponent implements OnInit {
   }
 
   listOfQuestion() {
-    this.questionService.getAll().subscribe(data => {
-      this.questions = data;
-      this.lengthOfList = data.length;
-      this.questions = data.slice(0, 2);
+    this.questionService.getAll(0,2).subscribe(data => {
+      this.questions = data.question;
+      this.lengthOfList=data.total;
       console.log(data)
     })
   }
@@ -85,25 +84,25 @@ export class QuestionsListComponent implements OnInit {
   }
 
   filterSearch() {
-    this.questionService.getByWord(this.contentSearch).subscribe(data=>{
-      this.questions=data;
+    this.questionService.getByWord(this.contentSearch,0,2).subscribe(data=>{
+      this.questions=data.question;
+      this.lengthOfList=data.total;
       console.log(data)
     });
   }
 
   paginate(event: any) {
     console.log(this.selectedCategory)
-    if (this.selectedCategory == undefined||this.selectedCategory.value=="All") {
-      this.questionService.getAll().subscribe(data => {
-        this.questions = data;
-        this.lengthOfList = data.length;
-        this.questions = data.slice(event.first, event.first + event.rows);
+    if (this.selectedCategory == undefined||this.selectedCategory.label=="All") {
+      this.questionService.getAll(event.page, 2).subscribe(data => {
+        this.questions = data.question;
+        this.lengthOfList=data.total;
         console.log(data)
       })
     } else {
-      this.questionService.getByCategorie(this.selectedCategory.label).subscribe(data => {
-        this.lengthOfList = data.length;
-        this.questions = data.slice(event.first, event.first + event.rows);
+      this.questionService.getByCategorie(this.selectedCategory.label,event.page, 2).subscribe(data => {
+        this.questions=data.question;
+        this.lengthOfList=data.total;
         console.log(data);
       });
 
@@ -111,19 +110,16 @@ export class QuestionsListComponent implements OnInit {
   }
 
   getByCategory() {
+    console.log(this.selectedCategory.label=="All")
     if(this.selectedCategory.label=="All"){
       this.listOfQuestion();
     }
     else {
-    this.questionService.getByCategorie(this.selectedCategory.label).subscribe(data => {
-      this.lengthOfList = data.length;
-      this.questions = data.slice(0, 2);
+      this.questionService.getByCategorie(this.selectedCategory.label,0, 2).subscribe(data => {
+      this.questions=data.question;
+      this.lengthOfList=data.total;
       console.log(data);
     });
     }
-  }
-
-  changeQuestion($event:any) {
-    console.log("saif")
   }
 }
