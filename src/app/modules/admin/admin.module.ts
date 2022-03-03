@@ -8,12 +8,18 @@ import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { LoginComponent } from './login/login.component';
 import {ButtonModule} from 'primeng-lts/button';
 import {CheckboxModule} from 'primeng-lts/checkbox';
+import { UsersDashboardComponent } from './users-dashboard/users-dashboard.component';
+import { authInterceptorProviders } from 'src/app/AuthInterceptor.service';
+import {TableModule} from 'primeng-lts/table';
+import { EditUserComponent } from './users-dashboard/edit-user/edit-user.component';
 
 
 @NgModule({
   declarations: [
     AdminLoginComponent,
-    LoginComponent
+    LoginComponent,
+    UsersDashboardComponent,
+    EditUserComponent,
   ],
   imports: [
     CommonModule,
@@ -21,10 +27,15 @@ import {CheckboxModule} from 'primeng-lts/checkbox';
     InputTextModule,
     FormsModule,
     ButtonModule,
-    CheckboxModule
+    CheckboxModule,
+    TableModule
   ],
   exports: [
     LoginComponent
+  ],
+  providers: [
+    
+    authInterceptorProviders,
   ]
 })
 export class AdminModule { }
