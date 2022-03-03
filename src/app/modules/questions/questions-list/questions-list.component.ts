@@ -42,10 +42,12 @@ export class QuestionsListComponent implements OnInit {
   }
 
   listOfQuestion() {
-    this.questionService.getAll().subscribe(data => {
+    this.questionService.getTotalOfElements(0,2).subscribe(data => {
+      this.lengthOfList = data;
+      console.log(data)
+    });
+    this.questionService.getAll(0,2).subscribe(data => {
       this.questions = data;
-      this.lengthOfList = data.length;
-      this.questions = data.slice(0, 2);
       console.log(data)
     })
   }
@@ -85,7 +87,10 @@ export class QuestionsListComponent implements OnInit {
   }
 
   filterSearch() {
-    this.questionService.getByWord(this.contentSearch).subscribe(data=>{
+    this.questionService.getTotalElementByWord(this.contentSearch,0,2).subscribe(data=>{
+      this.lengthOfList=data
+    });
+    this.questionService.getByWord(this.contentSearch,0,2).subscribe(data=>{
       this.questions=data;
       console.log(data)
     });
@@ -94,16 +99,20 @@ export class QuestionsListComponent implements OnInit {
   paginate(event: any) {
     console.log(this.selectedCategory)
     if (this.selectedCategory == undefined||this.selectedCategory.value=="All") {
-      this.questionService.getAll().subscribe(data => {
+      this.questionService.getTotalOfElements(event.page, 2).subscribe(data => {
+        this.lengthOfList = data;
+      })
+      this.questionService.getAll(event.page, 2).subscribe(data => {
         this.questions = data;
-        this.lengthOfList = data.length;
-        this.questions = data.slice(event.first, event.first + event.rows);
         console.log(data)
       })
     } else {
-      this.questionService.getByCategorie(this.selectedCategory.label).subscribe(data => {
-        this.lengthOfList = data.length;
-        this.questions = data.slice(event.first, event.first + event.rows);
+      this.questionService.getTotalElementByCategorie(this.selectedCategory.label,event.page, 2).subscribe(data => {
+        this.lengthOfList = data;
+        console.log(data);
+      });
+      this.questionService.getByCategorie(this.selectedCategory.label,event.page, 2).subscribe(data => {
+        this.questions=data
         console.log(data);
       });
 
@@ -115,15 +124,13 @@ export class QuestionsListComponent implements OnInit {
       this.listOfQuestion();
     }
     else {
-    this.questionService.getByCategorie(this.selectedCategory.label).subscribe(data => {
-      this.lengthOfList = data.length;
-      this.questions = data.slice(0, 2);
+      this.questionService.getTotalElementByCategorie(this.selectedCategory.label,0, 2).subscribe(data => {
+        this.lengthOfList = data
+      });
+      this.questionService.getByCategorie(this.selectedCategory.label,0, 2).subscribe(data => {
+      this.questions=data;
       console.log(data);
     });
     }
-  }
-
-  changeQuestion($event:any) {
-    console.log("saif")
   }
 }
