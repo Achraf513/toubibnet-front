@@ -6,5 +6,6 @@ export interface Answer {
   doctor: Doctor,
   question: Question,
   description: string,
-  date: Date
+  dateCreated: Date,
+  dateModified: Date
 }

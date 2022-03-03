@@ -49,9 +49,8 @@ span {
 }
 
 .username {
-  width: auto;
-  margin-left: 80%;
-  text-align: right;
+  float: right;
+  transform: translateX(70%);
 }
 
 .question-content {
@@ -62,7 +61,8 @@ span {
 
 .buttons {
   display: inline;
-  margin-left: 63%;
+  float: right;
+  transform: translateY(-30px)
 }
 .inputSearch {
   height: 100%;
@@ -72,10 +72,10 @@ span {
   padding-left: 40px;
 }
 .inputGroup {
+  float: right;
+  transform: translate(0px, -10px);
   height: 40px;
   width: 80%;
-  margin-top: 10px;
-  margin-bottom: 10px;
   position: relative;
   diplay: inline-block;
 }
@@ -89,21 +89,38 @@ span {
 }
 .secondColor {
   background-color: rgb(255, 185, 35);
-  color:white;
-  margin-left:3px;
+  color: white;
+  margin-left: 3px;
 }
+
 .secondColor:hover {
   background-color: rgb(248, 205, 113);
 }
+
 .secondColor:focus {
   border: none;
   box-shadow: 0 0 2px 2px rgb(243, 198, 100);
 }
-#div-display,#btn-display{
-  display:inline-block;
-  margin-right : 5px;
+
+#div-display, #btn-display {
+  display: inline-block;
 }
-#div-display{
-  width : fit-content;
-  margin-left:40%
+
+#div-display {
+  width: fit-content;
+  margin-left: 40%
+}
+
+.centered {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.aside {
+  margin-top: 45px;
+}
+.tab-menu{
+  margin-bottom:20px;
+  margin-left: 25%;
+  width:31%
 }
