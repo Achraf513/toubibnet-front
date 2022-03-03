@@ -25,9 +25,6 @@ export class QuestionService {
   public getAll(page:number,size:number): Observable<QuestionPerPageDto> {
     return this.httpClient.get<QuestionPerPageDto>(this.questionUrl+'/page/'+page+'/'+size);
   }
-  public getTotalOfElements(page:number,size:number): Observable<number> {
-    return this.httpClient.get<number>(this.questionUrl+'/totalelements/'+page+'/'+size);
-  }
 
   public getById(id: number): Observable<Question> {
     return this.httpClient.get<Question>(this.questionUrl + '/' + id);
@@ -40,15 +37,9 @@ export class QuestionService {
   public getByWord(mot: string,page:number,size:number): Observable<QuestionPerPageDto> {
     return this.httpClient.get<QuestionPerPageDto>(this.questionUrl + '/search/'+mot+'/page/'+size+'/'+page);
   }
-  public getTotalElementByWord(mot: string,page:number,size:number): Observable<number> {
-    return this.httpClient.get<number>(this.questionUrl + '/totalelementsbyword/'+mot+'/page/'+size+'/'+page);
-  }
 
   public getByCategorie(category: string | undefined,page:number,size:number): Observable<QuestionPerPageDto> {
     return this.httpClient.get<QuestionPerPageDto>(this.questionUrl + '/category/'+category+'/page/'+page+'/'+size );
-  }
-  public getTotalElementByCategorie(category: string | undefined,page:number,size:number): Observable<number> {
-    return this.httpClient.get<number>(this.questionUrl + '/totalelementsbycategory/'+category+'/page/'+page+'/'+size );
   }
 
   public getCategories(): Observable<string[]> {
