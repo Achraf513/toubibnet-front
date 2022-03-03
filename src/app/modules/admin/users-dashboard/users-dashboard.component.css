@@ -1,0 +1,21 @@
+table{
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    width: 70%;
+    margin-top: 70px;
+    margin-left: 15%;
+    text-align: center;
+    vertical-align: middle;
+}
+th{
+    font-weight:bold;
+    padding-bottom: 10px;
+}
+thead{
+    text-align: center;
+    
+    align-content: center;
+}
+button{
+    padding: 4px 6px;
+}
