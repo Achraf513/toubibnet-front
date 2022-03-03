@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { RoutingService } from 'src/app/routing.service';
 import { TokenService } from 'src/app/token.service';
 import { User } from '../../shared/models/User';
@@ -11,7 +12,7 @@ import { UserDashboardService } from '../services/user-dashboard.service';
 })
 export class UsersDashboardComponent implements OnInit {
   listUsers:any[] = [];
-  constructor( private service: UserDashboardService , private routingService: RoutingService) { 
+  constructor( private service: UserDashboardService , private router: Router) { 
   }
 
   ngOnInit() {
@@ -33,5 +34,9 @@ export class UsersDashboardComponent implements OnInit {
         this.listUsers.splice(index,1);
       },error=>console.log(error)
     )
+  }
+  update(user: User){
+    this.service.currentUser=user;
+    this.router.navigate(['/editUser'])
   }
 }
